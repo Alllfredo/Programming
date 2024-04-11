@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
 namespace Programming
 {
@@ -15,10 +16,7 @@ namespace Programming
         {
             set
             {
-                if (0 > value || value < 24)
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertOnPositiveValue(value,0,24);
                 _hour = value;
                 
 
@@ -29,8 +27,7 @@ namespace Programming
         { 
             set
             {
-                if (0 > value || value < 60)
-                    throw new ArgumentException();
+                Validator.AssertOnPositiveValue(value, 0, 60);
                 _minute = value;
             }
             get { return _minute; }
@@ -39,8 +36,7 @@ namespace Programming
         {
             set
             {
-                if (0 > value || value < 60)
-                    throw new ArgumentException();
+                Validator.AssertOnPositiveValue(value, 0, 60);
                 _second = value;
             }
             get { return _second; }

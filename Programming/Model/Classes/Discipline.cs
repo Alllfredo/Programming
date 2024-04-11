@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
 namespace Programming
 {
@@ -19,10 +20,7 @@ namespace Programming
             get { return _grade; }
             set
             {
-                if (value < 0 || value > 5)
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertOnPositiveValue(value, 0, 5);
                 _grade = value;
             }
         }

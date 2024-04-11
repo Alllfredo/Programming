@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
 namespace Programming
 {
@@ -21,10 +22,7 @@ namespace Programming
             get { return _time; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertOnPositiveValue(value);
                 _time = value;
             }
         }
@@ -33,10 +31,7 @@ namespace Programming
             get { return _data; }
             set
             {
-                if (value < 1900 || value >2024)
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertOnPositiveValue(value, 1900, 2024);
                 _data = value;
             }
         }
@@ -59,9 +54,9 @@ namespace Programming
             get { return _raiting; }
             set
             {
-                if (value <= 0 || value > 10)
-                    throw new ArgumentException();
-                
+                Validator.AssertOnPositiveValue(value, 0, 10);
+
+
                 _raiting = value;
             }
         }

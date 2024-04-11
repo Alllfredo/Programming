@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
 namespace Programming
 {
@@ -11,13 +12,13 @@ namespace Programming
         private double _length;
         private double _widght;
         private string _color;
+        private Point2D _center;
         public double Length
         {
             get { return _length; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException();
+                Validator.AssertOnPositiveValue(value);
                 _length = value;
             }
         }
@@ -26,8 +27,7 @@ namespace Programming
             get { return _widght; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException();
+                Validator.AssertOnPositiveValue(value);
                 _widght = value;
             }
         }
@@ -46,11 +46,15 @@ namespace Programming
             }
         }
 
-        public Rectangle(double length, double widght, string color)
+        public Point2D Center { get; set; }
+
+        public Rectangle(double length, double widght, string color, Point2D center)
         {
             Length = length;
             Widght = widght;
             Color = color;
+            Center = center;
+
         }
         public Rectangle() { }
     }

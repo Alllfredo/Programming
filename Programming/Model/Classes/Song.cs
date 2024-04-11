@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
 namespace Programming
 {
@@ -17,10 +18,7 @@ namespace Programming
             get { return _duration; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertOnPositiveValue(value);
                 _duration = value;
             }
         }  
