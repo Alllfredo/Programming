@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     internal class Point2D
     {
-        private readonly int _x;
-        private readonly int _y;
+        private int _x;
+        private int _y;
 
         public int X
         {
             get { return _x; }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value);
+                _x = value;
             }
         }
-
+        
         public int Y
         {
-            get { return _x;  }
-            private set
-            { 
+            get { return _y; }
+            set
+            {
                 Validator.AssertOnPositiveValue(value);
+                _y = value;
             }
         }
 

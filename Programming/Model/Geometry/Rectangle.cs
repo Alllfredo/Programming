@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Programming.Model;
+using Programming.Model.Classes;
 
 namespace Programming
 {
     internal class Rectangle
     {
-        private double _length;
-        private double _widght;
+        private int _length;
+        private int _widght;
         private string _color;
         private Point2D _center;
-        public double Length
+        private static int _allRectanglesCount =0;
+        private int _id;
+        public int Length
         {
             get { return _length; }
             set
@@ -22,7 +25,8 @@ namespace Programming
                 _length = value;
             }
         }
-        public double Widght
+        
+        public int Widght
         {
             get { return _widght; }
             set
@@ -48,14 +52,30 @@ namespace Programming
 
         public Point2D Center { get; set; }
 
-        public Rectangle(double length, double widght, string color, Point2D center)
+        public int AllRectanglesCount
+        {
+            get {return _allRectanglesCount;}
+        }
+
+        public int Id
+        {
+            get { return _id; } 
+        }
+
+        public Rectangle(int length, int widght, string color, int X, int Y)
         {
             Length = length;
             Widght = widght;
             Color = color;
-            Center = center;
-
+            Center = new Point2D(X,Y);
+            _id = _allRectanglesCount;
+            _allRectanglesCount++;
         }
         public Rectangle() { }
+
+        public override string ToString()
+        {
+            return $"{Id}: (X={Center.X}; Y={Center.Y}; H={_length}; W={_widght})";
+        }
     }
 }
