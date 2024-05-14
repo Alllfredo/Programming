@@ -7,8 +7,17 @@ using Programming;
 
 namespace Programming
 {
+    /// <summary>
+    /// Хранит данные о пересечении фигур
+    /// </summary>
     internal class CollisionManager
     {
+        /// <summary>
+        /// True - если фигуру пересекаются, False - нет
+        /// </summary>
+        /// <param name="rectangle1"></param>
+        /// <param name="rectangle2"></param>
+        /// <returns></returns>
         static public bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             double differenceX = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
@@ -18,7 +27,12 @@ namespace Programming
             return differenceX < halfLatitude && differenceY < halfLength;
         }
 
-
+        /// <summary>
+        /// True - если фигуру пересекаются, False - нет
+        /// </summary>
+        /// <param name="ring1"></param>
+        /// <param name="ring2"></param>
+        /// <returns></returns>
         public static bool IsCollision(Ring ring1, Ring ring2)
         {
             double distance = Math.Sqrt(Math.Pow(ring2.Center.X - ring1.Center.X, 2) + Math.Pow(ring2.Center.Y - ring1.Center.Y, 2));

@@ -7,9 +7,16 @@ using Programming.Model;
 
 namespace Programming
 {
+    /// <summary>
+    /// Хранит данные о созданной фигуре
+    /// </summary>
     internal class RectangleFactory
     {
         static Random random = new Random();
+        /// <summary>
+        /// Генерирует случайны новый объект типа Rectangle
+        /// </summary>
+        /// <returns></returns>
         static public Rectangle Randomize()
         {
 

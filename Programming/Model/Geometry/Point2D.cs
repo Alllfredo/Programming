@@ -7,11 +7,24 @@ using Programming.Model;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о центре фигуры
+    /// </summary>
     internal class Point2D
     {
+        /// <summary>
+        /// Координата X
+        /// </summary>
         private int _x;
+
+        /// <summary>
+        /// Координата Y
+        /// </summary>
         private int _y;
 
+        /// <summary>
+        /// Возвращает и задает X, состоит только из цифр
+        /// </summary>
         public int X
         {
             get { return _x; }
@@ -21,7 +34,10 @@ namespace Programming.Model.Classes
                 _x = value;
             }
         }
-        
+
+        /// <summary>
+        /// Возвращает и задает X, состоит только из цифр
+        /// </summary>
         public int Y
         {
             get { return _y; }
@@ -32,6 +48,11 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Point2D"/>.
+        /// </summary>
+        /// <param name="x">Координата Х, состоит из цифр</param>
+        /// <param name="y">Координата Y, состоит из цифр</param>
         public Point2D(int x, int y)
         {
             Y = y;

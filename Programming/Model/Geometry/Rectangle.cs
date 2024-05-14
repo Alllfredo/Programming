@@ -8,14 +8,44 @@ using Programming.Model.Classes;
 
 namespace Programming
 {
+    /// <summary>
+    /// Хранит данные о прямоугольнике
+    /// </summary>
     internal class Rectangle
     {
+        /// <summary>
+        /// Длинна
+        /// </summary>
         private int _length;
+
+        /// <summary>
+        /// Ширина
+        /// </summary>
         private int _widght;
+
+        /// <summary>
+        /// Цвет
+        /// </summary>
         private string _color;
+
+        /// <summary>
+        /// Цент прямоугольника
+        /// </summary>
         private Point2D _center;
-        private static int _allRectanglesCount =0;
+
+        /// <summary>
+        /// Счетчик всех фигур
+        /// </summary>
+        private static int _allRectanglesCount = 0;
+
+        /// <summary>
+        /// Уникальный идентификатор для всех объектов данного класса.
+        /// </summary>
         private int _id;
+
+        /// <summary>
+        /// Возвращает и задает длину. Должна состоять из цифр больше 0
+        /// </summary>
         public int Length
         {
             get { return _length; }
@@ -25,7 +55,10 @@ namespace Programming
                 _length = value;
             }
         }
-        
+
+        /// <summary>
+        /// Возвращает и задает ширину. Должна состоять из цифр больше 0
+        /// </summary>
         public int Widght
         {
             get { return _widght; }
@@ -35,6 +68,10 @@ namespace Programming
                 _widght = value;
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает цвет фигуры. Должен принадлежать перечислению
+        /// </summary>
         public string Color
         {
             get { return _color; }
@@ -50,18 +87,35 @@ namespace Programming
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает цент фигуры
+        /// </summary>
         public Point2D Center { get; set; }
 
+        /// <summary>
+        /// Возвращает счетчик всех фигур
+        /// </summary>
         public int AllRectanglesCount
         {
             get {return _allRectanglesCount;}
         }
 
+        /// <summary>
+        /// Возвращает уникальный идентификатор для всех объектов данного класса
+        /// </summary>
         public int Id
         {
             get { return _id; } 
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Rectangle"/>
+        /// </summary>
+        /// <param name="length">Длина. Состоит из положительных цифр</param>
+        /// <param name="widght">Ширина. Состоит из положительных цифр</param>
+        /// <param name="color">Цвет. Принадлежит перечислению</param>
+        /// <param name="X">Координата X</param>
+        /// <param name="Y">координата Y</param>
         public Rectangle(int length, int widght, string color, int X, int Y)
         {
             Length = length;
