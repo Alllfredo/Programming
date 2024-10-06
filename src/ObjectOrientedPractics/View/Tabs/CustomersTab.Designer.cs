@@ -40,6 +40,7 @@
             CustomersListBox = new ListBox();
             panel1 = new Panel();
             AddressTextBox = new TextBox();
+            RandomButton = new Button();
             SuspendLayout();
             // 
             // SelectedItemsLabel
@@ -47,7 +48,7 @@
             SelectedItemsLabel.AutoSize = true;
             SelectedItemsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             SelectedItemsLabel.ForeColor = SystemColors.ActiveCaptionText;
-            SelectedItemsLabel.Location = new Point(467, 4);
+            SelectedItemsLabel.Location = new Point(433, 9);
             SelectedItemsLabel.Name = "SelectedItemsLabel";
             SelectedItemsLabel.Size = new Size(197, 28);
             SelectedItemsLabel.TabIndex = 26;
@@ -66,7 +67,7 @@
             // CostLabel
             // 
             CostLabel.AutoSize = true;
-            CostLabel.Location = new Point(467, 88);
+            CostLabel.Location = new Point(433, 93);
             CostLabel.Name = "CostLabel";
             CostLabel.Size = new Size(79, 20);
             CostLabel.TabIndex = 24;
@@ -75,7 +76,7 @@
             // IdLabel
             // 
             IdLabel.AutoSize = true;
-            IdLabel.Location = new Point(467, 55);
+            IdLabel.Location = new Point(433, 60);
             IdLabel.Name = "IdLabel";
             IdLabel.Size = new Size(27, 20);
             IdLabel.TabIndex = 23;
@@ -84,7 +85,7 @@
             // NameLabel
             // 
             NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(467, 121);
+            NameLabel.Location = new Point(433, 126);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(65, 20);
             NameLabel.TabIndex = 22;
@@ -120,7 +121,7 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(552, 85);
+            NameTextBox.Location = new Point(518, 90);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(449, 27);
             NameTextBox.TabIndex = 16;
@@ -128,7 +129,7 @@
             // 
             // IdTextBox
             // 
-            IdTextBox.Location = new Point(553, 52);
+            IdTextBox.Location = new Point(519, 57);
             IdTextBox.MaximumSize = new Size(259, 27);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
@@ -142,31 +143,46 @@
             CustomersListBox.Location = new Point(5, 35);
             CustomersListBox.MaximumSize = new Size(438, 584);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(438, 584);
+            CustomersListBox.Size = new Size(405, 584);
             CustomersListBox.TabIndex = 14;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // panel1
             // 
-            panel1.Location = new Point(467, 292);
+            panel1.Location = new Point(433, 297);
             panel1.Name = "panel1";
             panel1.Size = new Size(534, 384);
             panel1.TabIndex = 27;
             // 
             // AddressTextBox
             // 
-            AddressTextBox.Location = new Point(553, 121);
+            AddressTextBox.Location = new Point(519, 126);
             AddressTextBox.Multiline = true;
             AddressTextBox.Name = "AddressTextBox";
             AddressTextBox.Size = new Size(448, 168);
             AddressTextBox.TabIndex = 28;
             AddressTextBox.TextChanged += AddressTextBox_TextChanged;
             // 
+            // RandomButton
+            // 
+            RandomButton.AutoSize = true;
+            RandomButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            RandomButton.Location = new Point(279, 624);
+            RandomButton.MinimumSize = new Size(131, 52);
+            RandomButton.Name = "RandomButton";
+            RandomButton.Padding = new Padding(1, 0, 1, 0);
+            RandomButton.Size = new Size(131, 52);
+            RandomButton.TabIndex = 29;
+            RandomButton.Text = "Random";
+            RandomButton.UseVisualStyleBackColor = true;
+            RandomButton.Click += RandomButton_Click;
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(AddressTextBox);
+            Controls.Add(RandomButton);
             Controls.Add(panel1);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
@@ -202,5 +218,6 @@
         private ListBox CustomersListBox;
         private Panel panel1;
         private TextBox AddressTextBox;
+        private Button RandomButton;
     }
 }

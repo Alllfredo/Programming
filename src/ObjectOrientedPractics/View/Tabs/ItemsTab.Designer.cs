@@ -41,6 +41,7 @@
             NameLabel = new Label();
             ItemsLabel = new Label();
             SelectedItemsLabel = new Label();
+            RandomButton = new Button();
             SuspendLayout();
             // 
             // ItemsListBox
@@ -92,7 +93,7 @@
             RemoveButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             RemoveButton.AutoSize = true;
             RemoveButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            RemoveButton.Location = new Point(171, 627);
+            RemoveButton.Location = new Point(166, 627);
             RemoveButton.MinimumSize = new Size(131, 52);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Padding = new Padding(1, 0, 1, 0);
@@ -179,11 +180,27 @@
             SelectedItemsLabel.TabIndex = 13;
             SelectedItemsLabel.Text = "Selected Items";
             // 
+            // RandomButton
+            // 
+            RandomButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            RandomButton.AutoSize = true;
+            RandomButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            RandomButton.Location = new Point(319, 627);
+            RandomButton.MinimumSize = new Size(131, 52);
+            RandomButton.Name = "RandomButton";
+            RandomButton.Padding = new Padding(1, 0, 1, 0);
+            RandomButton.Size = new Size(131, 52);
+            RandomButton.TabIndex = 14;
+            RandomButton.Text = "Random";
+            RandomButton.UseVisualStyleBackColor = true;
+            RandomButton.Click += RandomButton_Click;
+            // 
             // ItemsTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Controls.Add(RandomButton);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
             Controls.Add(CostLabel);
@@ -219,5 +236,6 @@
         private Label NameLabel;
         private Label ItemsLabel;
         private Label SelectedItemsLabel;
+        private Button RandomButton;
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
+
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -30,26 +30,33 @@ namespace ObjectOrientedPractics.View.Tabs
                     NameTextBox.Text, DiscriptionTextBox.Text,
                     Convert.ToDouble(CostTextBox.Text));
                 _items.Add(addItem);
-                ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost);
+                ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost + " руб.");
                 ItemsClear();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при добавлении товара: "
+                    + ex.Message);
+            }
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedIndex >= 0 && ItemsListBox.SelectedIndex < _items.Count)
+            if (ItemsListBox.SelectedIndex >= 0
+                && ItemsListBox.SelectedIndex < _items.Count)
             {
                 _items.RemoveAt(ItemsListBox.SelectedIndex);
                 ItemsListBox.Items.RemoveAt(ItemsListBox.SelectedIndex);
                 AddButton.Enabled = true;
+                RandomButton.Enabled = true;
                 ItemsClear();
             }
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedIndex >= 0 && ItemsListBox.SelectedIndex < _items.Count)
+            if (ItemsListBox.SelectedIndex >= 0
+                && ItemsListBox.SelectedIndex < _items.Count)
             {
                 _item = _items[ItemsListBox.SelectedIndex];
                 NameTextBox.Text = _item.Name;
@@ -57,6 +64,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = Convert.ToString(_item.Cost);
                 IdTextBox.Text = Convert.ToString(_item.Id);
                 AddButton.Enabled = false;
+                RandomButton.Enabled = false;
 
             }
         }
@@ -78,12 +86,16 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 CostTextBox.BackColor = System.Drawing.Color.White; ;
-                Validator.AssertOnPositiveValue(Convert.ToDouble(CostTextBox.Text), 100000, "Cost");
-                int ind = ItemsListBox.SelectedIndex;
-                if (ind >= 0)
+                Validator.AssertOnPositiveValue(
+                    Convert.ToDouble(CostTextBox.Text), 100000, "Cost");
+                
+                if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ind].Cost = Convert.ToDouble(CostTextBox.Text);
-                    ItemsListBox.Items[ind] = (_items[ind].Name + " - " + _items[ind].Cost);
+                    _items[ItemsListBox.SelectedIndex].Cost = 
+                        Convert.ToDouble(CostTextBox.Text);
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                        (_items[ItemsListBox.SelectedIndex].Name +
+                        " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
             }
             catch
@@ -98,11 +110,14 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 NameTextBox.BackColor = System.Drawing.Color.White; ;
                 Validator.AssertStringOnLength(NameTextBox.Text, 200, "Name");
-                int ind = ItemsListBox.SelectedIndex;
-                if (ind >= 0)
+                
+                if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ind].Name = NameTextBox.Text;
-                    ItemsListBox.Items[ind] = (_items[ind].Name + " - " + _items[ind].Cost);
+                    _items[ItemsListBox.SelectedIndex].Name = 
+                        NameTextBox.Text;
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                        (_items[ItemsListBox.SelectedIndex].Name +
+                        " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
             }
             catch
@@ -115,12 +130,13 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                DiscriptionTextBox.BackColor = System.Drawing.Color.White; ;
-                Validator.AssertStringOnLength(DiscriptionTextBox.Text, 1000, "Name");
-                int ind = ItemsListBox.SelectedIndex;
-                if (ind >= 0)
+                DiscriptionTextBox.BackColor = System.Drawing.Color.White;
+                Validator.AssertStringOnLength(
+                    DiscriptionTextBox.Text, 1000, "Description");
+                
+                if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ind].Info = DiscriptionTextBox.Text;
+                    _items[ItemsListBox.SelectedIndex].Info = DiscriptionTextBox.Text;
                 }
             }
             catch
@@ -139,7 +155,16 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.SetSelected(0, false);
                 ItemsClear();
                 AddButton.Enabled = true;
+                RandomButton.Enabled = true;
             }
+        }
+
+        private void RandomButton_Click(object sender, EventArgs e)
+        {
+            _item = ItemFactory.ItemGenerate();
+            _items.Add(_item);
+            ItemsListBox.Items.Add(_item.Name +
+                " - " + _item.Cost + " руб.");
         }
     }
 }

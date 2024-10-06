@@ -16,7 +16,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Customer> _customers = new List<Customer>();
         private Customer _customer;
 
-
         public CustomersTab()
         {
             InitializeComponent();
@@ -26,35 +25,46 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                Customer addCustomer = new Customer(
-                    NameTextBox.Text, AddressTextBox.Text);
-                _customers.Add(addCustomer);
-                CustomersListBox.Items.Add(addCustomer.Fullname);
-                CustomersClear();
+                if (NameTextBox.Text != "")
+                {
+                    Customer addCustomer = new Customer(
+                        NameTextBox.Text, AddressTextBox.Text);
+                    _customers.Add(addCustomer);
+                    CustomersListBox.Items.Add(addCustomer.Fullname);
+                    CustomersClear();
+                }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при добавлении клиента: "
+                    + ex.Message);
+            }
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex >= 0 && CustomersListBox.SelectedIndex < _customers.Count)
+            if (CustomersListBox.SelectedIndex >= 0 &&
+                CustomersListBox.SelectedIndex < _customers.Count)
             {
                 _customers.RemoveAt(CustomersListBox.SelectedIndex);
                 CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
                 AddButton.Enabled = true;
+                RandomButton.Enabled = true;
                 CustomersClear();
             }
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex >= 0 && CustomersListBox.SelectedIndex < _customers.Count)
+            if (CustomersListBox.SelectedIndex >= 0 &&
+                CustomersListBox.SelectedIndex < _customers.Count)
             {
                 _customer = _customers[CustomersListBox.SelectedIndex];
                 NameTextBox.Text = _customer.Fullname;
                 AddressTextBox.Text = _customer.Address;
                 IdTextBox.Text = Convert.ToString(_customer.Id);
                 AddButton.Enabled = false;
+                RandomButton.Enabled = false;
             }
         }
 
@@ -105,6 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CustomersListBox.SetSelected(0, false);
                 CustomersClear();
                 AddButton.Enabled = true;
+                RandomButton.Enabled = true;
             }
         }
 
@@ -119,5 +130,11 @@ namespace ObjectOrientedPractics.View.Tabs
             IdTextBox.BackColor = Color.White;
         }
 
+        private void RandomButton_Click(object sender, EventArgs e)
+        {
+            _customer = CustomerFactory.CustomerGenerate();
+            _customers.Add(_customer);
+            CustomersListBox.Items.Add(_customer.Fullname);
+        }
     }
 }
