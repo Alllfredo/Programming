@@ -85,15 +85,14 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                CostTextBox.BackColor = System.Drawing.Color.White; ;
+                CostTextBox.BackColor = System.Drawing.Color.White;
                 Validator.AssertOnPositiveValue(
                     Convert.ToDouble(CostTextBox.Text), 100000, "Cost");
-                
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Cost = 
+                    _items[ItemsListBox.SelectedIndex].Cost =
                         Convert.ToDouble(CostTextBox.Text);
-                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
@@ -108,14 +107,13 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                NameTextBox.BackColor = System.Drawing.Color.White; ;
+                NameTextBox.BackColor = System.Drawing.Color.White;
                 Validator.AssertStringOnLength(NameTextBox.Text, 200, "Name");
-                
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Name = 
+                    _items[ItemsListBox.SelectedIndex].Name =
                         NameTextBox.Text;
-                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
@@ -131,12 +129,11 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 DiscriptionTextBox.BackColor = System.Drawing.Color.White;
-                Validator.AssertStringOnLength(
-                    DiscriptionTextBox.Text, 1000, "Description");
-                
+                Validator.AssertStringOnLength(DiscriptionTextBox.Text, 1000, "Name");
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Info = DiscriptionTextBox.Text;
+                    _items[ItemsListBox.SelectedIndex].Info =
+                        DiscriptionTextBox.Text;
                 }
             }
             catch
