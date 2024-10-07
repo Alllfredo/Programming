@@ -58,13 +58,13 @@ namespace ObjectOrientedPractics
         /// Возвращает объект типа <see cref="Customer"/> с случайно сгенерированными
         /// данными (ФИО и адрес).
         /// </returns>
-        public static Customer CustomerGenerate()
-        {
-            return new Customer(_firstName[random.Next(_firstName.Count)] +
-                " " + _lastName[random.Next(_lastName.Count)],
-                "г. " + _addressCity[random.Next(_addressCity.Count)] +
-                ", ул. " + _addressStreey[random.Next(_addressStreey.Count)] +
-                ", д " + Convert.ToString(random.Next(0,100)));
-        }
+        //public static Customer CustomerGenerate()
+        //{
+        //    return new Customer(_firstName[random.Next(_firstName.Count)] +
+        //        " " + _lastName[random.Next(_lastName.Count)],
+        //        "г. " + _addressCity[random.Next(_addressCity.Count)] +
+        //        ", ул. " + _addressStreey[random.Next(_addressStreey.Count)] +
+        //        ", д " + Convert.ToString(random.Next(0,100)));
+        //}
     }
 }

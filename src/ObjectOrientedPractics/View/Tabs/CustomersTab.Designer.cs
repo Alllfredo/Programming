@@ -32,15 +32,15 @@
             ItemsLabel = new Label();
             CostLabel = new Label();
             IdLabel = new Label();
-            NameLabel = new Label();
             RemoveButton = new Button();
             AddButton = new Button();
             NameTextBox = new TextBox();
             IdTextBox = new TextBox();
             CustomersListBox = new ListBox();
-            panel1 = new Panel();
-            AddressTextBox = new TextBox();
             RandomButton = new Button();
+            panel1 = new Panel();
+            AddressControl = new Controls.AddressControl();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // SelectedItemsLabel
@@ -81,15 +81,6 @@
             IdLabel.Size = new Size(27, 20);
             IdLabel.TabIndex = 23;
             IdLabel.Text = "ID:";
-            // 
-            // NameLabel
-            // 
-            NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(433, 126);
-            NameLabel.Name = "NameLabel";
-            NameLabel.Size = new Size(65, 20);
-            NameLabel.TabIndex = 22;
-            NameLabel.Text = "Address:";
             // 
             // RemoveButton
             // 
@@ -147,22 +138,6 @@
             CustomersListBox.TabIndex = 14;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(433, 297);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(534, 384);
-            panel1.TabIndex = 27;
-            // 
-            // AddressTextBox
-            // 
-            AddressTextBox.Location = new Point(519, 126);
-            AddressTextBox.Multiline = true;
-            AddressTextBox.Name = "AddressTextBox";
-            AddressTextBox.Size = new Size(448, 168);
-            AddressTextBox.TabIndex = 28;
-            AddressTextBox.TextChanged += AddressTextBox_TextChanged;
-            // 
             // RandomButton
             // 
             RandomButton.AutoSize = true;
@@ -177,18 +152,33 @@
             RandomButton.UseVisualStyleBackColor = true;
             RandomButton.Click += RandomButton_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(AddressControl);
+            panel1.Location = new Point(433, 123);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(534, 384);
+            panel1.TabIndex = 27;
+            // 
+            // AddressControl
+            // 
+            AddressControl.Dock = DockStyle.Fill;
+            AddressControl.Location = new Point(0, 0);
+            AddressControl.Name = "AddressControl";
+            AddressControl.Size = new Size(534, 384);
+            AddressControl.TabIndex = 0;
+            AddressControl.Load += addressControl1_Load;
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(AddressTextBox);
             Controls.Add(RandomButton);
             Controls.Add(panel1);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
             Controls.Add(CostLabel);
             Controls.Add(IdLabel);
-            Controls.Add(NameLabel);
             Controls.Add(RemoveButton);
             Controls.Add(AddButton);
             Controls.Add(NameTextBox);
@@ -197,6 +187,7 @@
             Name = "CustomersTab";
             Size = new Size(1019, 685);
             Click += CustomersTab_Click;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -207,7 +198,6 @@
         private Label ItemsLabel;
         private Label CostLabel;
         private Label IdLabel;
-        private Label NameLabel;
         private Label DicriptionLabel;
         private Button RemoveButton;
         private Button AddButton;
@@ -216,8 +206,8 @@
         private TextBox NameNextBox;
         private TextBox IdTextBox;
         private ListBox CustomersListBox;
-        private Panel panel1;
-        private TextBox AddressTextBox;
         private Button RandomButton;
+        private Panel panel1;
+        private Controls.AddressControl AddressControl;
     }
 }

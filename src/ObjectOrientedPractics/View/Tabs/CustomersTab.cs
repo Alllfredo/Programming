@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics.View.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (NameTextBox.Text != "")
                 {
                     Customer addCustomer = new Customer(
-                        NameTextBox.Text, AddressTextBox.Text);
+                        NameTextBox.Text, AddressControl.Address);
                     _customers.Add(addCustomer);
                     CustomersListBox.Items.Add(addCustomer.Fullname);
                     CustomersClear();
@@ -61,7 +62,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _customer = _customers[CustomersListBox.SelectedIndex];
                 NameTextBox.Text = _customer.Fullname;
-                AddressTextBox.Text = _customer.Address;
+                AddressControl.Address = _customer.Address;
                 IdTextBox.Text = Convert.ToString(_customer.Id);
                 AddButton.Enabled = false;
                 RandomButton.Enabled = false;
@@ -87,25 +88,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                AddressTextBox.BackColor = System.Drawing.Color.White; ;
-                Validator.AssertStringOnLength(AddressTextBox.Text, 500, "Address");
-                int ind = CustomersListBox.SelectedIndex;
-                if (ind >= 0)
-                {
-                    _customers[ind].Address = AddressTextBox.Text;
-                }
-            }
-            catch
-            {
-                NameTextBox.BackColor = System.Drawing.Color.LightPink;
-            }
-        }
-
-
         private void CustomersTab_Click(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex >= 0 &&
@@ -122,19 +104,24 @@ namespace ObjectOrientedPractics.View.Tabs
         void CustomersClear()
         {
             NameTextBox.Text = "";
-            AddressTextBox.Text = "";
+            AddressControl.Clear();
             IdTextBox.Text = "";
 
             NameTextBox.BackColor = Color.White;
-            AddressTextBox.BackColor = Color.White;
+            //AddressTextBox.BackColor = Color.White;
             IdTextBox.BackColor = Color.White;
         }
 
         private void RandomButton_Click(object sender, EventArgs e)
         {
-            _customer = CustomerFactory.CustomerGenerate();
+            //_customer = CustomerFactory.CustomerGenerate();
             _customers.Add(_customer);
             CustomersListBox.Items.Add(_customer.Fullname);
+        }
+
+        private void addressControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

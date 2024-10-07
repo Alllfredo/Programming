@@ -37,6 +37,7 @@ namespace ObjectOrientedPractics
         /// </summary>
         private double _cost;
 
+        public Category Category { get; set; }
 
         /// <summary>
         ///  Возвращает и задает название товара. Длина строки не больше 200 символов.
@@ -72,7 +73,7 @@ namespace ObjectOrientedPractics
             get { return _cost; }
             set
             {
-                Validator.AssertOnPositiveValue(value, 100_000, "Cost");
+                Validator.AssertOnPositiveValue(value, 0, 100_000, "Cost");
                 _cost = value;
             }
         }
@@ -91,13 +92,15 @@ namespace ObjectOrientedPractics
         /// <param name="name"></param>
         /// <param name="info"></param>
         /// <param name="cost"></param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             _countId += 1;
             _id = _countId;
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
         }
     }
 }

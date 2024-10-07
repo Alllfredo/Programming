@@ -42,6 +42,8 @@
             ItemsLabel = new Label();
             SelectedItemsLabel = new Label();
             RandomButton = new Button();
+            label1 = new Label();
+            CategoryComboBox = new ComboBox();
             SuspendLayout();
             // 
             // ItemsListBox
@@ -57,7 +59,7 @@
             // 
             // IdTextBox
             // 
-            IdTextBox.Location = new Point(521, 54);
+            IdTextBox.Location = new Point(552, 54);
             IdTextBox.MaximumSize = new Size(259, 27);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
@@ -66,7 +68,7 @@
             // 
             // CostTextBox
             // 
-            CostTextBox.Location = new Point(521, 87);
+            CostTextBox.Location = new Point(552, 87);
             CostTextBox.MaximumSize = new Size(259, 27);
             CostTextBox.Name = "CostTextBox";
             CostTextBox.Size = new Size(258, 27);
@@ -123,7 +125,7 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(474, 167);
+            NameTextBox.Location = new Point(474, 223);
             NameTextBox.MaximumSize = new Size(535, 165);
             NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
@@ -133,7 +135,7 @@
             // 
             // DiscriptionTextBox
             // 
-            DiscriptionTextBox.Location = new Point(474, 371);
+            DiscriptionTextBox.Location = new Point(474, 427);
             DiscriptionTextBox.MaximumSize = new Size(535, 250);
             DiscriptionTextBox.Multiline = true;
             DiscriptionTextBox.Name = "DiscriptionTextBox";
@@ -144,7 +146,7 @@
             // DicriptionLabel
             // 
             DicriptionLabel.AutoSize = true;
-            DicriptionLabel.Location = new Point(474, 348);
+            DicriptionLabel.Location = new Point(474, 404);
             DicriptionLabel.Name = "DicriptionLabel";
             DicriptionLabel.Size = new Size(81, 20);
             DicriptionLabel.TabIndex = 8;
@@ -153,7 +155,7 @@
             // NameLabel
             // 
             NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(474, 144);
+            NameLabel.Location = new Point(474, 200);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(49, 20);
             NameLabel.TabIndex = 9;
@@ -195,11 +197,31 @@
             RandomButton.UseVisualStyleBackColor = true;
             RandomButton.Click += RandomButton_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(474, 124);
+            label1.Name = "label1";
+            label1.Size = new Size(72, 20);
+            label1.TabIndex = 15;
+            label1.Text = "Category:";
+            // 
+            // CategoryComboBox
+            // 
+            CategoryComboBox.FormattingEnabled = true;
+            CategoryComboBox.Location = new Point(552, 121);
+            CategoryComboBox.Name = "CategoryComboBox";
+            CategoryComboBox.Size = new Size(257, 28);
+            CategoryComboBox.TabIndex = 16;
+            CategoryComboBox.SelectedIndexChanged += CategoryComboBox_SelectedIndexChanged;
+            // 
             // ItemsTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Controls.Add(CategoryComboBox);
+            Controls.Add(label1);
             Controls.Add(RandomButton);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
@@ -237,5 +259,7 @@
         private Label ItemsLabel;
         private Label SelectedItemsLabel;
         private Button RandomButton;
+        private Label label1;
+        private ComboBox CategoryComboBox;
     }
 }

@@ -20,6 +20,7 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -28,7 +29,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 Item addItem = new Item(
                     NameTextBox.Text, DiscriptionTextBox.Text,
-                    Convert.ToDouble(CostTextBox.Text));
+                    Convert.ToDouble(CostTextBox.Text),
+                    (Category)CategoryComboBox.SelectedItem);
                 _items.Add(addItem);
                 ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost + " руб.");
                 ItemsClear();
@@ -63,17 +65,21 @@ namespace ObjectOrientedPractics.View.Tabs
                 DiscriptionTextBox.Text = _item.Info;
                 CostTextBox.Text = Convert.ToString(_item.Cost);
                 IdTextBox.Text = Convert.ToString(_item.Id);
+                CategoryComboBox.SelectedItem = _item.Category;
+
                 AddButton.Enabled = false;
                 RandomButton.Enabled = false;
 
             }
         }
+
         void ItemsClear()
         {
             NameTextBox.Text = "";
             DiscriptionTextBox.Text = "";
             CostTextBox.Text = "";
             IdTextBox.Text = "";
+            CategoryComboBox.SelectedIndex = 0;
 
             NameTextBox.BackColor = Color.White;
             DiscriptionTextBox.BackColor = Color.White;
@@ -87,13 +93,13 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CostTextBox.BackColor = System.Drawing.Color.White; ;
                 Validator.AssertOnPositiveValue(
-                    Convert.ToDouble(CostTextBox.Text), 100000, "Cost");
-                
+                    Convert.ToDouble(CostTextBox.Text), 0, 100000, "Cost");
+
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Cost = 
+                    _items[ItemsListBox.SelectedIndex].Cost =
                         Convert.ToDouble(CostTextBox.Text);
-                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
@@ -110,12 +116,12 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 NameTextBox.BackColor = System.Drawing.Color.White; ;
                 Validator.AssertStringOnLength(NameTextBox.Text, 200, "Name");
-                
+
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Name = 
+                    _items[ItemsListBox.SelectedIndex].Name =
                         NameTextBox.Text;
-                    ItemsListBox.Items[ItemsListBox.SelectedIndex] = 
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
                 }
@@ -125,6 +131,21 @@ namespace ObjectOrientedPractics.View.Tabs
                 NameTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ItemsListBox.SelectedIndex >= 0)
+                {
+                    _items[ItemsListBox.SelectedIndex].Category =
+                        (Category)CategoryComboBox.SelectedItem;
+                    ItemsListBox.Items[ItemsListBox.SelectedIndex] =
+                        (_items[ItemsListBox.SelectedIndex].Name +
+                        " - " + _items[ItemsListBox.SelectedIndex].Cost + " руб.");
+                }
+            }
+            catch { }
+        }
 
         private void DiscriptionTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -133,7 +154,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 DiscriptionTextBox.BackColor = System.Drawing.Color.White;
                 Validator.AssertStringOnLength(
                     DiscriptionTextBox.Text, 1000, "Description");
-                
+
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
                     _items[ItemsListBox.SelectedIndex].Info = DiscriptionTextBox.Text;

@@ -24,7 +24,9 @@ namespace ObjectOrientedPractics
         public static Item ItemGenerate()
         {
             return new Item(_names[random.Next(_names.Count)], "",
-                Math.Round(random.NextDouble() * 99_000 + 1_000, 2));
+                Math.Round(random.NextDouble() * 99_000 + 1_000, 2), 
+                (Category)Enum.GetValues(typeof(Category)).
+                GetValue(new Random().Next(Enum.GetValues(typeof(Category)).Length)));
         }
     }
 }

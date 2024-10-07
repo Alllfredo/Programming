@@ -34,12 +34,28 @@ namespace ObjectOrientedPractics
         /// <param name="maxValue"></param>
         /// <param name="propertyName"></param>
         /// <exception cref="ArgumentException"></exception>
-        public static void AssertOnPositiveValue(double value, int maxValue, string propertyName)
+        public static void AssertOnPositiveValue(double value,double minValue, double maxValue, string propertyName)
         {
-            if (value < 0 || value > maxValue)
+            if (value < minValue || value > maxValue)
             {
                 throw new ArgumentException(string.Format
                     ("{0} должен быть в диапозоне от 0 до {1}.", propertyName, maxValue));
+            }
+        }
+
+        /// <summary>
+        ///  Проверяет, что значение находится в заданом диапозоне
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="maxValue"></param>
+        /// <param name="propertyName"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public static void AssertOnPositiveValue(int value, int minValue, int maxValue, string propertyName)
+        {
+            if (value < minValue || value > maxValue)
+            {
+                throw new ArgumentException(string.Format
+                    ("{0} должен быть в диапозоне от {1} до {2}.", propertyName, minValue, maxValue));
             }
         }
     }

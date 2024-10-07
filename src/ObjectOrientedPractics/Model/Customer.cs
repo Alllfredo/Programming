@@ -28,7 +28,7 @@ namespace ObjectOrientedPractics
         /// <summary>
         /// Адресс
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Возвращает и задает ФИО. Длина небольше 200 символов
@@ -46,14 +46,10 @@ namespace ObjectOrientedPractics
         /// <summary>
         /// Возвращает и задает адресс. Длина небольше 500 символов
         /// </summary>
-        public string Address
+        public Address Address
         {
             get { return _address; }
-            set
-            {
-                Validator.AssertStringOnLength(value, 500, "Address");
-                _address = value;
-            }
+            set { _address = value; }
         }
         /// <summary>
         /// Возвращает уникальный идентификатор для всех объектов данного класса
@@ -68,7 +64,7 @@ namespace ObjectOrientedPractics
         /// </summary>
         /// <param name="fullname">ФИО, длина небольше 200 смиволов</param>
         /// <param name="address">Адресс, длина небольше 500 смиволов</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             _countId += 1;
             _id = _countId;
