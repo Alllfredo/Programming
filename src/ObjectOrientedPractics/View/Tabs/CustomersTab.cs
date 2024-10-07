@@ -27,10 +27,10 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 if (NameTextBox.Text != "")
                 {
-                    Customer addCustomer = new Customer(
+                    _customer = new Customer(
                         NameTextBox.Text, AddressTextBox.Text);
-                    _customers.Add(addCustomer);
-                    CustomersListBox.Items.Add(addCustomer.Fullname);
+                    _customers.Add(_customer);
+                    CustomersListBox.Items.Add(_customer.Fullname);
                     CustomersClear();
                 }
             }

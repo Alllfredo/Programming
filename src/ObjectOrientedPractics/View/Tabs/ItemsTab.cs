@@ -26,11 +26,11 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                Item addItem = new Item(
+                _item = new Item(
                     NameTextBox.Text, DiscriptionTextBox.Text,
                     Convert.ToDouble(CostTextBox.Text));
-                _items.Add(addItem);
-                ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost + " руб.");
+                _items.Add(_item);
+                ItemsListBox.Items.Add(_item.Name + " - " + _item.Cost + " руб.");
                 ItemsClear();
             }
             catch (Exception ex)
