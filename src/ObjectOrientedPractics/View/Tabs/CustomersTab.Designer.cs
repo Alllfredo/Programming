@@ -38,7 +38,6 @@
             NameTextBox = new TextBox();
             IdTextBox = new TextBox();
             CustomersListBox = new ListBox();
-            panel1 = new Panel();
             AddressTextBox = new TextBox();
             RandomButton = new Button();
             SuspendLayout();
@@ -147,13 +146,6 @@
             CustomersListBox.TabIndex = 14;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(433, 297);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(534, 384);
-            panel1.TabIndex = 27;
-            // 
             // AddressTextBox
             // 
             AddressTextBox.Location = new Point(519, 126);
@@ -183,7 +175,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(AddressTextBox);
             Controls.Add(RandomButton);
-            Controls.Add(panel1);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
             Controls.Add(CostLabel);
@@ -216,7 +207,6 @@
         private TextBox NameNextBox;
         private TextBox IdTextBox;
         private ListBox CustomersListBox;
-        private Panel panel1;
         private TextBox AddressTextBox;
         private Button RandomButton;
     }

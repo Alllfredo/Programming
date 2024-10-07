@@ -73,12 +73,12 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 NameTextBox.BackColor = System.Drawing.Color.White;
-                Validator.AssertStringOnLength(DiscriptionTextBox.Text, 200, "Full Name");
+                Validator.AssertStringOnLength(NameTextBox.Text, 200, "Full Name");
                 if (CustomersListBox.SelectedIndex >= 0)
                 {
                     _customers[CustomersListBox.SelectedIndex].Fullname =
                         NameTextBox.Text;
-                    CustomersListBox.Items[CustomersListBox.SelectedIndex] = 
+                    CustomersListBox.Items[CustomersListBox.SelectedIndex] =
                         (_customers[CustomersListBox.SelectedIndex].Fullname);
                 }
             }
@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 AddressTextBox.BackColor = System.Drawing.Color.White;
-                Validator.AssertStringOnLength(DiscriptionTextBox.Text, 500, "Address");
+                Validator.AssertStringOnLength(AddressTextBox.Text, 500, "Address");
                 if (CustomersListBox.SelectedIndex >= 0)
                 {
                     _customers[CustomersListBox.SelectedIndex].Address =

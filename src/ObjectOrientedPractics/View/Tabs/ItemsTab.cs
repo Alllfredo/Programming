@@ -94,7 +94,7 @@ namespace ObjectOrientedPractics.View.Tabs
                         Convert.ToDouble(CostTextBox.Text);
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
-                        " - " + _items[ItemsListBox.SelectedIndex].Cost);
+                        " - " + _items[ItemsListBox.SelectedIndex].Cost + " руб.");
                 }
             }
             catch
@@ -115,7 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
                         NameTextBox.Text;
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
-                        " - " + _items[ItemsListBox.SelectedIndex].Cost);
+                        " - " + _items[ItemsListBox.SelectedIndex].Cost + " руб.");
                 }
             }
             catch
