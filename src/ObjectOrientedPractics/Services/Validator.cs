@@ -21,7 +21,7 @@ namespace ObjectOrientedPractics
         public static void AssertStringOnLength
             (string value, int maxLength, string propertyName)
         {
-            if (value.Length < 0 || value.Length > maxLength)
+            if (value.Length <= 0 || value.Length >= maxLength)
                 throw new ArgumentException(string.Format
                     ("{0} должен быть меньше {1} символов.", propertyName, maxLength));
         }

@@ -18,12 +18,6 @@ namespace ObjectOrientedPractics.View.Controls
         {
             get 
             {
-                _address.Index = Convert.ToInt32(IndexTextBox.Text);
-                _address.Country = CountryTextBox.Text;
-                _address.City = CityTextBox.Text;
-                _address.Street = StreetTextBox.Text;
-                _address.Building = BuildingTextBox.Text;
-                _address.Apartment = ApartmentTextBox.Text;
                 return _address; 
             }
             set
@@ -134,6 +128,8 @@ namespace ObjectOrientedPractics.View.Controls
         }
         public void Clear()
         {
+            _address = new Address();
+
             IndexTextBox.Text = "";
             CountryTextBox.Text = "";
             CityTextBox.Text = "";
@@ -142,6 +138,11 @@ namespace ObjectOrientedPractics.View.Controls
             ApartmentTextBox.Text = "";
 
             IndexTextBox.BackColor = Color.White;
+            CountryTextBox.BackColor = Color.White;
+            CityTextBox.BackColor = Color.White;
+            StreetTextBox.BackColor = Color.White;
+            BuildingTextBox.BackColor = Color.White;
+            ApartmentTextBox.BackColor = Color.White;
         }
     }
 }

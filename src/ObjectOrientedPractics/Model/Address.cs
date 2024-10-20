@@ -83,6 +83,15 @@ namespace ObjectOrientedPractics
             Building = building;
             Apartment = apartment;
         }
+        public Address(Address adress)
+        {
+            Index = adress.Index;
+            Country = adress.Country;
+            City = adress.City;
+            Street = adress.Street;
+            Building = adress.Building;
+            Apartment = adress.Apartment;
+        }
         public Address() { }
     }
 }

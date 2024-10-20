@@ -21,6 +21,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
+            CategoryComboBox.Text = null;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace ObjectOrientedPractics.View.Tabs
             DiscriptionTextBox.Text = "";
             CostTextBox.Text = "";
             IdTextBox.Text = "";
-            CategoryComboBox.SelectedIndex = 0;
+            CategoryComboBox.Text = null;
 
             NameTextBox.BackColor = Color.White;
             DiscriptionTextBox.BackColor = Color.White;
@@ -139,6 +140,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     _items[ItemsListBox.SelectedIndex].Category =
                         (Category)CategoryComboBox.SelectedItem;
+
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost + " руб.");
