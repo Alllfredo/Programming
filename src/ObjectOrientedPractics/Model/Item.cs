@@ -10,7 +10,7 @@ namespace ObjectOrientedPractics
     /// <summary>
     /// Хранит данные о товарах
     /// </summary>
-    internal class Item
+    public class Item
     {
         /// <summary>
         /// счетсик-поле

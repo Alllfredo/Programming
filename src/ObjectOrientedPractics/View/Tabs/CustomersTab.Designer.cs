@@ -37,7 +37,6 @@
             NameTextBox = new TextBox();
             IdTextBox = new TextBox();
             CustomersListBox = new ListBox();
-            RandomButton = new Button();
             panel1 = new Panel();
             AddressControl = new Controls.AddressControl();
             panel1.SuspendLayout();
@@ -138,20 +137,6 @@
             CustomersListBox.TabIndex = 14;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
-            // RandomButton
-            // 
-            RandomButton.AutoSize = true;
-            RandomButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            RandomButton.Location = new Point(279, 624);
-            RandomButton.MinimumSize = new Size(131, 52);
-            RandomButton.Name = "RandomButton";
-            RandomButton.Padding = new Padding(1, 0, 1, 0);
-            RandomButton.Size = new Size(131, 52);
-            RandomButton.TabIndex = 29;
-            RandomButton.Text = "Random";
-            RandomButton.UseVisualStyleBackColor = true;
-            RandomButton.Click += RandomButton_Click;
-            // 
             // panel1
             // 
             panel1.Controls.Add(AddressControl);
@@ -167,13 +152,11 @@
             AddressControl.Name = "AddressControl";
             AddressControl.Size = new Size(534, 384);
             AddressControl.TabIndex = 0;
-            AddressControl.Load += addressControl1_Load;
             // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(RandomButton);
             Controls.Add(panel1);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
@@ -206,7 +189,6 @@
         private TextBox NameNextBox;
         private TextBox IdTextBox;
         private ListBox CustomersListBox;
-        private Button RandomButton;
         private Panel panel1;
         private Controls.AddressControl AddressControl;
     }

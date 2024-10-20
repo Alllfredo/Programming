@@ -17,6 +17,28 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Item> _items = new List<Item>();
         private Item _item;
 
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+                UpdateItemsListBox();
+            }
+        }
+
+        private void UpdateItemsListBox()
+        {
+            ItemsListBox.Items.Clear();
+            foreach (var item in _items)
+            {
+                ItemsListBox.Items.Add(item.Name);
+            }
+        }
+
         public ItemsTab()
         {
             InitializeComponent();
@@ -51,7 +73,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _items.RemoveAt(ItemsListBox.SelectedIndex);
                 ItemsListBox.Items.RemoveAt(ItemsListBox.SelectedIndex);
                 AddButton.Enabled = true;
-                RandomButton.Enabled = true;
                 ItemsClear();
             }
         }
@@ -69,7 +90,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 CategoryComboBox.SelectedItem = _item.Category;
 
                 AddButton.Enabled = false;
-                RandomButton.Enabled = false;
 
             }
         }
@@ -178,16 +198,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.SetSelected(0, false);
                 ItemsClear();
                 AddButton.Enabled = true;
-                RandomButton.Enabled = true;
             }
-        }
-
-        private void RandomButton_Click(object sender, EventArgs e)
-        {
-            _item = ItemFactory.ItemGenerate();
-            _items.Add(_item);
-            ItemsListBox.Items.Add(_item.Name +
-                " - " + _item.Cost + " руб.");
         }
     }
 }

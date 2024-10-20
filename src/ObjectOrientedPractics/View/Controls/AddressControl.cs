@@ -18,6 +18,12 @@ namespace ObjectOrientedPractics.View.Controls
         {
             get 
             {
+                _address.Index = Convert.ToInt32(IndexTextBox.Text);
+                _address.Country = CountryTextBox.Text;
+                _address.City = CityTextBox.Text;
+                _address.Street = StreetTextBox.Text;
+                _address.Building = BuildingTextBox.Text;
+                _address.Apartment = ApartmentTextBox.Text;
                 return _address; 
             }
             set

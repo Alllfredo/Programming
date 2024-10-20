@@ -8,7 +8,7 @@ namespace ObjectOrientedPractics
     /// <summary>
     /// Хранит данные о клиентах
     /// </summary>
-    internal class Customer
+    public class Customer
     {
         /// <summary>
         /// поле-счетчик

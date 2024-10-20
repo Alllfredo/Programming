@@ -41,7 +41,6 @@
             NameLabel = new Label();
             ItemsLabel = new Label();
             SelectedItemsLabel = new Label();
-            RandomButton = new Button();
             label1 = new Label();
             CategoryComboBox = new ComboBox();
             SuspendLayout();
@@ -182,21 +181,6 @@
             SelectedItemsLabel.TabIndex = 13;
             SelectedItemsLabel.Text = "Selected Items";
             // 
-            // RandomButton
-            // 
-            RandomButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            RandomButton.AutoSize = true;
-            RandomButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            RandomButton.Location = new Point(319, 627);
-            RandomButton.MinimumSize = new Size(131, 52);
-            RandomButton.Name = "RandomButton";
-            RandomButton.Padding = new Padding(1, 0, 1, 0);
-            RandomButton.Size = new Size(131, 52);
-            RandomButton.TabIndex = 14;
-            RandomButton.Text = "Random";
-            RandomButton.UseVisualStyleBackColor = true;
-            RandomButton.Click += RandomButton_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -223,7 +207,6 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(CategoryComboBox);
             Controls.Add(label1);
-            Controls.Add(RandomButton);
             Controls.Add(SelectedItemsLabel);
             Controls.Add(ItemsLabel);
             Controls.Add(CostLabel);
@@ -259,7 +242,6 @@
         private Label NameLabel;
         private Label ItemsLabel;
         private Label SelectedItemsLabel;
-        private Button RandomButton;
         private Label label1;
         private ComboBox CategoryComboBox;
     }

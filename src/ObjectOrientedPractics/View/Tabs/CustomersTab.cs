@@ -17,6 +17,28 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Customer> _customers = new List<Customer>();
         private Customer _customer;
 
+        public List<Customer> Customers
+        {
+            get
+            {
+                return _customers;
+            }
+            set
+            {
+                _customers = value;
+                UpdateCustomersListBox();
+            }
+        }
+
+        private void UpdateCustomersListBox()
+        {
+            CustomersListBox.Items.Clear();
+            foreach (var customer in _customers)
+            {
+                CustomersListBox.Items.Add($"{customer.Fullname}");
+            }
+        }
+
         public CustomersTab()
         {
             InitializeComponent();
@@ -28,7 +50,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 if (NameTextBox.Text != "")
                 {
-                    
+
                     Customer addCustomer = new Customer(
                         NameTextBox.Text, new Address(AddressControl.Address));
                     _customers.Add(addCustomer);
@@ -51,7 +73,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _customers.RemoveAt(CustomersListBox.SelectedIndex);
                 CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
                 AddButton.Enabled = true;
-                RandomButton.Enabled = true;
+
                 CustomersClear();
             }
         }
@@ -66,7 +88,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 AddressControl.Address = _customer.Address;
                 IdTextBox.Text = Convert.ToString(_customer.Id);
                 AddButton.Enabled = false;
-                RandomButton.Enabled = false;
             }
         }
 
@@ -98,7 +119,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 CustomersListBox.SetSelected(0, false);
                 CustomersClear();
                 AddButton.Enabled = true;
-                RandomButton.Enabled = true;
             }
         }
 
@@ -109,20 +129,7 @@ namespace ObjectOrientedPractics.View.Tabs
             IdTextBox.Text = "";
 
             NameTextBox.BackColor = Color.White;
-            //AddressTextBox.BackColor = Color.White;
             IdTextBox.BackColor = Color.White;
-        }
-
-        private void RandomButton_Click(object sender, EventArgs e)
-        {
-            //_customer = CustomerFactory.CustomerGenerate();
-            _customers.Add(_customer);
-            CustomersListBox.Items.Add(_customer.Fullname);
-        }
-
-        private void addressControl1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
