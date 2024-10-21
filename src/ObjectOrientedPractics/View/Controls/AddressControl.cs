@@ -54,7 +54,10 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 IndexTextBox.BackColor = Color.White;
-                Validator.AssertOnPositiveValue(Convert.ToInt32(IndexTextBox.Text), 100_000, 999_999, "Index");
+                Validator.AssertOnPositiveValue(
+                    Convert.ToInt32(IndexTextBox.Text), 
+                    100_000, 999_999, "Index");
+
                 _address.Index = Convert.ToInt32(IndexTextBox.Text);
             }
             catch
@@ -68,7 +71,9 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 CountryTextBox.BackColor = Color.White;
-                Validator.AssertStringOnLength(CountryTextBox.Text, 50, "Country");
+                Validator.AssertStringOnLength(
+                    CountryTextBox.Text, 50, "Country");
+
                 _address.Country = CountryTextBox.Text;
             }
             catch
@@ -82,7 +87,9 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 CityTextBox.BackColor = Color.White;
-                Validator.AssertStringOnLength(CityTextBox.Text, 50, "City");
+                Validator.AssertStringOnLength(
+                    CityTextBox.Text, 50, "City");
+
                 _address.City = CityTextBox.Text;
             }
             catch
@@ -96,7 +103,9 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 StreetTextBox.BackColor = Color.White;
-                Validator.AssertStringOnLength(StreetTextBox.Text, 100_000, "Street");
+                Validator.AssertStringOnLength(
+                    StreetTextBox.Text, 100_000, "Street");
+
                 _address.Street = StreetTextBox.Text;
             }
             catch
@@ -110,7 +119,9 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 BuildingTextBox.BackColor = Color.White;
-                Validator.AssertStringOnLength(BuildingTextBox.Text, 10, "Builiding");
+                Validator.AssertStringOnLength(
+                    BuildingTextBox.Text, 10, "Builiding");
+
                 _address.Building = BuildingTextBox.Text;
             }
             catch
@@ -124,7 +135,9 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 ApartmentTextBox.BackColor = Color.White;
-                Validator.AssertStringOnLength(ApartmentTextBox.Text, 10, "Apartment");
+                Validator.AssertStringOnLength(
+                    ApartmentTextBox.Text, -1, 10, "Apartment");
+
                 _address.Apartment = ApartmentTextBox.Text;
             }
             catch

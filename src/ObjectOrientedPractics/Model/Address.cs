@@ -6,15 +6,44 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics
 {
+    /// <summary>
+    /// Представляет адрес клиента, включая индекс, страну, город, улицу, здание и квартиру.
+    /// </summary>
     public class Address
     {
+        /// <summary>
+        /// Хранит индекс.
+        /// </summary>
         private int _index;
+
+        /// <summary>
+        /// Хранит страну.
+        /// </summary>
         private string _country;
+
+        /// <summary>
+        /// Хранит город.
+        /// </summary>
         private string _city;
+
+        /// <summary>
+        /// Хранит улицу.
+        /// </summary>
         private string _street;
+
+        /// <summary>
+        /// Хранит номер здания.
+        /// </summary>
         private string _building;
+
+        /// <summary>
+        /// Хранит номер квартиры.
+        /// </summary>
         private string _apartment;
 
+        /// <summary>
+        /// Возвращает и задает индекс. Значение должно быть в диапазоне от 100000 до 999999.
+        /// </summary>
         public int Index
         {
             get { return _index; }
@@ -24,8 +53,12 @@ namespace ObjectOrientedPractics
                 _index = value;
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает страну. Длина строки не должна превышать 50 символов.
+        /// </summary>
         public string Country
-        { 
+        {
             get { return _country; }
             set
             {
@@ -34,8 +67,11 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает город. Длина строки не должна превышать 50 символов.
+        /// </summary>
         public string City
-        { 
+        {
             get { return _city; }
             set
             {
@@ -44,8 +80,11 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает улицу. Длина строки не должна превышать 100 символов.
+        /// </summary>
         public string Street
-        { 
+        {
             get { return _street; }
             set
             {
@@ -54,8 +93,11 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает номер здания. Длина строки не должна превышать 10 символов.
+        /// </summary>
         public string Building
-        { 
+        {
             get { return _building; }
             set
             {
@@ -64,8 +106,11 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает номер квартиры. Длина строки не должна превышать 10 символов.
+        /// </summary>
         public string Apartment
-        { 
+        {
             get { return _apartment; }
             set
             {
@@ -74,6 +119,15 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Address"/> с заданными параметрами.
+        /// </summary>
+        /// <param name="index">Индекс</param>
+        /// <param name="country">Страна</param>
+        /// <param name="city">Город</param>
+        /// <param name="street">Улица</param>
+        /// <param name="building">Здание</param>
+        /// <param name="apartment">Квартира</param>
         public Address(int index, string country, string city, string street, string building, string apartment)
         {
             Index = index;
@@ -83,6 +137,12 @@ namespace ObjectOrientedPractics
             Building = building;
             Apartment = apartment;
         }
+
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Address"/> на основе другого адреса.
+        /// </summary>
+        /// <param name="adress">Адрес для копирования</param>
         public Address(Address adress)
         {
             Index = adress.Index;
@@ -92,6 +152,10 @@ namespace ObjectOrientedPractics
             Building = adress.Building;
             Apartment = adress.Apartment;
         }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Address"/> без параметров.
+        /// </summary>
         public Address() { }
     }
 }

@@ -54,8 +54,11 @@ namespace ObjectOrientedPractics.View.Tabs
                     NameTextBox.Text, DiscriptionTextBox.Text,
                     Convert.ToDouble(CostTextBox.Text),
                     (Category)CategoryComboBox.SelectedItem);
+
                 _items.Add(addItem);
-                ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost + " руб.");
+                ItemsListBox.Items.Add(addItem.Name + " - " + 
+                    addItem.Cost + " руб.");
+
                 ItemsClear();
             }
             catch (Exception ex)
@@ -112,14 +115,15 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                CostTextBox.BackColor = System.Drawing.Color.White; ;
+                CostTextBox.BackColor = System.Drawing.Color.White;
                 Validator.AssertOnPositiveValue(
-                    Convert.ToDouble(CostTextBox.Text), 0, 100000, "Cost");
+                    Convert.ToDouble(CostTextBox.Text), 0, 100_000, "Cost");
 
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
                     _items[ItemsListBox.SelectedIndex].Cost =
                         Convert.ToDouble(CostTextBox.Text);
+
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
@@ -142,6 +146,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     _items[ItemsListBox.SelectedIndex].Name =
                         NameTextBox.Text;
+
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
                         " - " + _items[ItemsListBox.SelectedIndex].Cost);
@@ -163,7 +168,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +
-                        " - " + _items[ItemsListBox.SelectedIndex].Cost + " руб.");
+                        " - " + 
+                        _items[ItemsListBox.SelectedIndex].Cost + " руб.");
                 }
             }
             catch { }
@@ -175,11 +181,12 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 DiscriptionTextBox.BackColor = System.Drawing.Color.White;
                 Validator.AssertStringOnLength(
-                    DiscriptionTextBox.Text, 1000, "Description");
+                    DiscriptionTextBox.Text, -1, 1000, "Description");
 
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
-                    _items[ItemsListBox.SelectedIndex].Info = DiscriptionTextBox.Text;
+                    _items[ItemsListBox.SelectedIndex].Info 
+                        = DiscriptionTextBox.Text;
                 }
             }
             catch

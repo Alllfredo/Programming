@@ -152,6 +152,7 @@
             AddressControl.Name = "AddressControl";
             AddressControl.Size = new Size(534, 384);
             AddressControl.TabIndex = 0;
+            AddressControl.Click += AddressControl_Click;
             // 
             // CustomersTab
             // 

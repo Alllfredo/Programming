@@ -25,6 +25,21 @@ namespace ObjectOrientedPractics
                 throw new ArgumentException(string.Format
                     ("{0} должен быть меньше {1} символов.", propertyName, maxLength));
         }
+        /// <summary>
+        /// Проверяет, что длинна строки находится в заданом диапозоне
+        /// </summary>
+        /// <param name="value">Строка</param>
+        /// <param name="minValue">Минимальное значение</param>
+        /// <param name="maxLength">Максимальное</param>
+        /// <param name="propertyName"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public static void AssertStringOnLength
+            (string value, int minValue, int maxLength, string propertyName)
+        {
+            if (value.Length <= minValue || value.Length >= maxLength)
+                throw new ArgumentException(string.Format
+                    ("{0} должен быть меньше {1} символов.", propertyName, maxLength));
+        }
 
 
         /// <summary>

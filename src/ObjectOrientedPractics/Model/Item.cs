@@ -60,7 +60,7 @@ namespace ObjectOrientedPractics
             get { return _info; }
             set
             {
-                Validator.AssertStringOnLength(value, 1000, "Info");
+                Validator.AssertStringOnLength(value, -1, 1000, "Info");
                 _info = value;
             }
         }

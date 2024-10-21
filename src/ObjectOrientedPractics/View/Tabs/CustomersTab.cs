@@ -54,7 +54,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     Customer addCustomer = new Customer(
                         NameTextBox.Text, new Address(AddressControl.Address));
                     _customers.Add(addCustomer);
-                    CustomersListBox.Items.Add(addCustomer.Fullname + " - " + addCustomer.Address.Index);
+                    CustomersListBox.Items.Add(addCustomer.Fullname);
                     CustomersClear();
                 }
             }
@@ -130,6 +130,18 @@ namespace ObjectOrientedPractics.View.Tabs
 
             NameTextBox.BackColor = Color.White;
             IdTextBox.BackColor = Color.White;
+        }
+
+        private void AddressControl_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex >= 0 &&
+                    CustomersListBox.SelectedIndex
+                    < _customers.Count)
+            {
+                CustomersListBox.SetSelected(0, false);
+                CustomersClear();
+                AddButton.Enabled = true;
+            }
         }
     }
 }
