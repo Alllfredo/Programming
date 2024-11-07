@@ -14,5 +14,10 @@ namespace ObjectOrientedPractics
             itemsTab1.Items = _store.Items;
             customersTab1.Customers = _store.Customers;
         }
+
+        private void customersTab1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -44,8 +44,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(3, 33);
+            label1.Location = new Point(3, 13);
             label1.Name = "label1";
             label1.Size = new Size(79, 20);
             label1.TabIndex = 0;
@@ -53,16 +54,20 @@
             // 
             // IndexTextBox
             // 
-            IndexTextBox.Location = new Point(82, 30);
+            IndexTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            IndexTextBox.Location = new Point(82, 10);
+            IndexTextBox.MaximumSize = new Size(60, 30);
+            IndexTextBox.MinimumSize = new Size(60, 30);
             IndexTextBox.Name = "IndexTextBox";
-            IndexTextBox.Size = new Size(56, 27);
+            IndexTextBox.Size = new Size(60, 30);
             IndexTextBox.TabIndex = 1;
             IndexTextBox.TextChanged += IndexTextBox_TextChanged;
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(3, 71);
+            label3.Location = new Point(3, 51);
             label3.Name = "label3";
             label3.Size = new Size(63, 20);
             label3.TabIndex = 3;
@@ -70,8 +75,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 104);
+            label4.Location = new Point(3, 121);
             label4.Name = "label4";
             label4.Size = new Size(51, 20);
             label4.TabIndex = 4;
@@ -79,8 +85,9 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 139);
+            label5.Location = new Point(3, 156);
             label5.Name = "label5";
             label5.Size = new Size(73, 20);
             label5.TabIndex = 5;
@@ -88,8 +95,10 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(276, 71);
+            label2.Location = new Point(3, 88);
+            label2.Margin = new Padding(0, 4, 0, 0);
             label2.Name = "label2";
             label2.Size = new Size(34, 20);
             label2.TabIndex = 2;
@@ -97,8 +106,9 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(215, 139);
+            label6.Location = new Point(-1, 190);
             label6.Name = "label6";
             label6.Size = new Size(83, 20);
             label6.TabIndex = 6;
@@ -106,41 +116,56 @@
             // 
             // CountryTextBox
             // 
-            CountryTextBox.Location = new Point(82, 68);
+            CountryTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            CountryTextBox.Location = new Point(82, 48);
+            CountryTextBox.Margin = new Padding(0, 4, 0, 0);
+            CountryTextBox.MaximumSize = new Size(400, 400);
+            CountryTextBox.MinimumSize = new Size(100, 30);
             CountryTextBox.Name = "CountryTextBox";
-            CountryTextBox.Size = new Size(188, 27);
+            CountryTextBox.Size = new Size(155, 27);
             CountryTextBox.TabIndex = 7;
             CountryTextBox.TextChanged += CountryTextBox_TextChanged;
             // 
             // StreetTextBox
             // 
-            StreetTextBox.Location = new Point(82, 101);
+            StreetTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            StreetTextBox.Location = new Point(82, 118);
+            StreetTextBox.MaximumSize = new Size(400, 400);
             StreetTextBox.Name = "StreetTextBox";
-            StreetTextBox.Size = new Size(401, 27);
+            StreetTextBox.Size = new Size(367, 27);
             StreetTextBox.TabIndex = 8;
             StreetTextBox.TextChanged += StreetTextBox_TextChanged;
             // 
             // BuildingTextBox
             // 
-            BuildingTextBox.Location = new Point(82, 136);
+            BuildingTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            BuildingTextBox.Location = new Point(82, 153);
+            BuildingTextBox.MaximumSize = new Size(400, 400);
+            BuildingTextBox.MinimumSize = new Size(100, 30);
             BuildingTextBox.Name = "BuildingTextBox";
-            BuildingTextBox.Size = new Size(127, 27);
+            BuildingTextBox.Size = new Size(100, 30);
             BuildingTextBox.TabIndex = 9;
             BuildingTextBox.TextChanged += BuildingTextBox_TextChanged;
             // 
             // CityTextBox
             // 
-            CityTextBox.Location = new Point(316, 68);
+            CityTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            CityTextBox.Location = new Point(82, 85);
+            CityTextBox.MaximumSize = new Size(400, 400);
+            CityTextBox.MinimumSize = new Size(100, 30);
             CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(167, 27);
+            CityTextBox.Size = new Size(134, 27);
             CityTextBox.TabIndex = 10;
             CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
             // ApartmentTextBox
             // 
-            ApartmentTextBox.Location = new Point(304, 136);
+            ApartmentTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            ApartmentTextBox.Location = new Point(82, 187);
+            ApartmentTextBox.MaximumSize = new Size(400, 400);
+            ApartmentTextBox.MinimumSize = new Size(100, 30);
             ApartmentTextBox.Name = "ApartmentTextBox";
-            ApartmentTextBox.Size = new Size(125, 27);
+            ApartmentTextBox.Size = new Size(100, 30);
             ApartmentTextBox.TabIndex = 11;
             ApartmentTextBox.TextChanged += ApartmentTextBox_TextChanged;
             // 
@@ -161,7 +186,7 @@
             Controls.Add(IndexTextBox);
             Controls.Add(label1);
             Name = "AddressControl";
-            Size = new Size(500, 229);
+            Size = new Size(467, 231);
             ResumeLayout(false);
             PerformLayout();
         }

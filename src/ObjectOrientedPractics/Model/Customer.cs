@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,11 @@ namespace ObjectOrientedPractics
         private Address _address;
 
         /// <summary>
+        /// Поле для хранения корзины клиента
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
         /// Возвращает и задает ФИО. Длина небольше 200 символов
         /// </summary>
         public string Fullname
@@ -38,7 +44,7 @@ namespace ObjectOrientedPractics
             get { return _fullname; }
             set
             {
-                Validator.AssertStringOnLength(value, 200, "Fullname");
+                Validator.AssertStringOnLength(value, 200, "ФИО");
                 _fullname = value;
             }
         }
@@ -59,6 +65,15 @@ namespace ObjectOrientedPractics
             get { return _id; }
         }
 
+
+        /// <summary>
+        /// Свойство для получения корзины клиента
+        /// </summary>
+        public Cart Cart
+        {
+            get { return _cart; }
+        }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
@@ -68,6 +83,7 @@ namespace ObjectOrientedPractics
         {
             _countId += 1;
             _id = _countId;
+            _cart = new Cart();
             Fullname = fullname;
             Address = address;
         }

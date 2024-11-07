@@ -62,7 +62,7 @@ namespace ObjectOrientedPractics
             get { return _country; }
             set
             {
-                Validator.AssertStringOnLength(value, 50, nameof(value));
+                Validator.AssertStringOnLength(value, 50, "Страна");
                 _country = value;
             }
         }
@@ -75,7 +75,7 @@ namespace ObjectOrientedPractics
             get { return _city; }
             set
             {
-                Validator.AssertStringOnLength(value, 50, nameof(value));
+                Validator.AssertStringOnLength(value, 50, "Город");
                 _city = value;
             }
         }
@@ -88,7 +88,7 @@ namespace ObjectOrientedPractics
             get { return _street; }
             set
             {
-                Validator.AssertStringOnLength(value, 100, nameof(value));
+                Validator.AssertStringOnLength(value, 100, "Улица");
                 _street = value;
             }
         }
@@ -101,7 +101,7 @@ namespace ObjectOrientedPractics
             get { return _building; }
             set
             {
-                Validator.AssertStringOnLength(value, 10, nameof(value));
+                Validator.AssertStringOnLength(value, 10, "Номер здания");
                 _building = value;
             }
         }
@@ -114,7 +114,7 @@ namespace ObjectOrientedPractics
             get { return _apartment; }
             set
             {
-                Validator.AssertStringOnLength(value, 10, nameof(value));
+                Validator.AssertStringOnLength(value, -1, 10, "Квартира");
                 _apartment = value;
             }
         }

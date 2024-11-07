@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabControl = new TabControl();
             ItemsTabPage = new TabPage();
             itemsTab1 = new View.Tabs.ItemsTab();
@@ -75,7 +76,7 @@
             CustomersTab.Location = new Point(4, 29);
             CustomersTab.Name = "CustomersTab";
             CustomersTab.Padding = new Padding(3);
-            CustomersTab.Size = new Size(192, 67);
+            CustomersTab.Size = new Size(1104, 726);
             CustomersTab.TabIndex = 1;
             CustomersTab.Text = "Customers";
             CustomersTab.UseVisualStyleBackColor = true;
@@ -85,8 +86,9 @@
             customersTab1.Dock = DockStyle.Fill;
             customersTab1.Location = new Point(3, 3);
             customersTab1.Name = "customersTab1";
-            customersTab1.Size = new Size(186, 61);
+            customersTab1.Size = new Size(1098, 720);
             customersTab1.TabIndex = 0;
+            customersTab1.Load += customersTab1_Load;
             // 
             // MainForm
             // 

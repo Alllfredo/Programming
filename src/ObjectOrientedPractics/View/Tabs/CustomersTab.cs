@@ -96,7 +96,7 @@ namespace ObjectOrientedPractics.View.Tabs
             try
             {
                 NameTextBox.BackColor = System.Drawing.Color.White; ;
-                Validator.AssertStringOnLength(NameTextBox.Text, 200, "Name");
+                Validator.AssertStringOnLength(NameTextBox.Text, 200, "ФИО");
                 int ind = CustomersListBox.SelectedIndex;
                 if (ind >= 0)
                 {
@@ -142,6 +142,16 @@ namespace ObjectOrientedPractics.View.Tabs
                 CustomersClear();
                 AddButton.Enabled = true;
             }
+        }
+
+        private void AddressControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

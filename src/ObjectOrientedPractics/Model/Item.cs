@@ -47,7 +47,7 @@ namespace ObjectOrientedPractics
             get { return _name; }
             set
             {
-                Validator.AssertStringOnLength(value, 200, "Name");
+                Validator.AssertStringOnLength(value, 200, "Названеи товара");
                 _name = value;
             }
         }
@@ -60,7 +60,7 @@ namespace ObjectOrientedPractics
             get { return _info; }
             set
             {
-                Validator.AssertStringOnLength(value, -1, 1000, "Info");
+                Validator.AssertStringOnLength(value, -1, 1000, "Информация о товаре");
                 _info = value;
             }
         }
@@ -73,7 +73,7 @@ namespace ObjectOrientedPractics
             get { return _cost; }
             set
             {
-                Validator.AssertOnPositiveValue(value, 0, 100_000, "Cost");
+                Validator.AssertOnPositiveValue(value, 0, 100_000, "Цена");
                 _cost = value;
             }
         }

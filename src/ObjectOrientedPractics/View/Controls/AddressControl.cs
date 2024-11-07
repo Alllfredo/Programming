@@ -16,7 +16,7 @@ namespace ObjectOrientedPractics.View.Controls
 
         public Address Address
         {
-            get 
+            get
             {
                 _address.Index = Convert.ToInt32(IndexTextBox.Text);
                 _address.Country = CountryTextBox.Text;
@@ -24,7 +24,7 @@ namespace ObjectOrientedPractics.View.Controls
                 _address.Street = StreetTextBox.Text;
                 _address.Building = BuildingTextBox.Text;
                 _address.Apartment = ApartmentTextBox.Text;
-                return _address; 
+                return _address;
             }
             set
             {
@@ -55,8 +55,8 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 IndexTextBox.BackColor = Color.White;
                 Validator.AssertOnPositiveValue(
-                    Convert.ToInt32(IndexTextBox.Text), 
-                    100_000, 999_999, "Index");
+                    Convert.ToInt32(IndexTextBox.Text),
+                    100_000, 999_999, "Почтовый индекс");
 
                 _address.Index = Convert.ToInt32(IndexTextBox.Text);
             }
@@ -72,7 +72,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 CountryTextBox.BackColor = Color.White;
                 Validator.AssertStringOnLength(
-                    CountryTextBox.Text, 50, "Country");
+                    CountryTextBox.Text, 50, "Страна");
 
                 _address.Country = CountryTextBox.Text;
             }
@@ -88,7 +88,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 CityTextBox.BackColor = Color.White;
                 Validator.AssertStringOnLength(
-                    CityTextBox.Text, 50, "City");
+                    CityTextBox.Text, 50, "Город");
 
                 _address.City = CityTextBox.Text;
             }
@@ -104,7 +104,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 StreetTextBox.BackColor = Color.White;
                 Validator.AssertStringOnLength(
-                    StreetTextBox.Text, 100_000, "Street");
+                    StreetTextBox.Text, 100_000, "Улица");
 
                 _address.Street = StreetTextBox.Text;
             }
@@ -120,7 +120,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 BuildingTextBox.BackColor = Color.White;
                 Validator.AssertStringOnLength(
-                    BuildingTextBox.Text, 10, "Builiding");
+                    BuildingTextBox.Text, 10, "Номер дома");
 
                 _address.Building = BuildingTextBox.Text;
             }
@@ -136,7 +136,7 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 ApartmentTextBox.BackColor = Color.White;
                 Validator.AssertStringOnLength(
-                    ApartmentTextBox.Text, -1, 10, "Apartment");
+                    ApartmentTextBox.Text, -1, 10, "Квартира");
 
                 _address.Apartment = ApartmentTextBox.Text;
             }
