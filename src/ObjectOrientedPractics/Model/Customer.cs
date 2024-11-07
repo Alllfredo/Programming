@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics;
+using ObjectOrientedPractics.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,10 @@ namespace ObjectOrientedPractics
         /// </summary>
         private Cart _cart;
 
+        /// <summary>
+        /// Поле для хранения списка товаро
+        /// </summary>
+        private List<Order> _orders;
         /// <summary>
         /// Возвращает и задает ФИО. Длина небольше 200 символов
         /// </summary>
@@ -75,6 +80,18 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
+        /// Заказы клиента.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get { return _orders; }
+            set
+            {
+                _orders = value;
+            }
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">ФИО, длина небольше 200 смиволов</param>
@@ -86,6 +103,7 @@ namespace ObjectOrientedPractics
             _cart = new Cart();
             Fullname = fullname;
             Address = address;
+            Orders = new List<Order>();
         }
     }
 }
