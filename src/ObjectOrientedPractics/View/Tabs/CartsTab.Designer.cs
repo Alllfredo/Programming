@@ -106,8 +106,8 @@
             // 
             // RemoveButton
             // 
-            RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            RemoveButton.Location = new Point(486, 5);
+            RemoveButton.Anchor = AnchorStyles.Bottom;
+            RemoveButton.Location = new Point(492, 5);
             RemoveButton.Margin = new Padding(5);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(131, 52);
@@ -118,8 +118,8 @@
             // 
             // ClearButton
             // 
-            ClearButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ClearButton.Location = new Point(625, 5);
+            ClearButton.Anchor = AnchorStyles.Bottom;
+            ClearButton.Location = new Point(628, 5);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(131, 52);
             ClearButton.TabIndex = 6;
@@ -167,7 +167,7 @@
             // 
             // CreateButton
             // 
-            CreateButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CreateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             CreateButton.Location = new Point(5, 5);
             CreateButton.Margin = new Padding(5);
             CreateButton.Name = "CreateButton";
@@ -203,13 +203,13 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(CreateButton);
             panel2.Controls.Add(RemoveButton);
             panel2.Controls.Add(ClearButton);
-            panel2.Location = new Point(3, 425);
+            panel2.Location = new Point(0, 428);
             panel2.Name = "panel2";
-            panel2.Size = new Size(768, 62);
+            panel2.Size = new Size(774, 62);
             panel2.TabIndex = 11;
             // 
             // panel1
