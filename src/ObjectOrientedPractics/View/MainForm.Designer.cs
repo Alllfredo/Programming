@@ -36,10 +36,13 @@
             customersTab1 = new View.Tabs.CustomersTab();
             tabPage1 = new TabPage();
             CartsTabControl = new View.Tabs.CartsTab();
+            OrdersTabPadge = new TabPage();
+            OrdersTab = new View.Tabs.OrdersTab();
             TabControl.SuspendLayout();
             ItemsTabPage.SuspendLayout();
             CustomersTab.SuspendLayout();
             tabPage1.SuspendLayout();
+            OrdersTabPadge.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl
@@ -47,6 +50,7 @@
             TabControl.Controls.Add(ItemsTabPage);
             TabControl.Controls.Add(CustomersTab);
             TabControl.Controls.Add(tabPage1);
+            TabControl.Controls.Add(OrdersTabPadge);
             TabControl.Dock = DockStyle.Fill;
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
@@ -115,6 +119,25 @@
             CartsTabControl.Size = new Size(1098, 720);
             CartsTabControl.TabIndex = 0;
             // 
+            // OrdersTabPadge
+            // 
+            OrdersTabPadge.Controls.Add(OrdersTab);
+            OrdersTabPadge.Location = new Point(4, 29);
+            OrdersTabPadge.Name = "OrdersTabPadge";
+            OrdersTabPadge.Padding = new Padding(3);
+            OrdersTabPadge.Size = new Size(1104, 726);
+            OrdersTabPadge.TabIndex = 3;
+            OrdersTabPadge.Text = "Orders";
+            OrdersTabPadge.UseVisualStyleBackColor = true;
+            // 
+            // OrdersTab
+            // 
+            OrdersTab.Dock = DockStyle.Fill;
+            OrdersTab.Location = new Point(3, 3);
+            OrdersTab.Name = "OrdersTab";
+            OrdersTab.Size = new Size(1098, 720);
+            OrdersTab.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -126,6 +149,7 @@
             ItemsTabPage.ResumeLayout(false);
             CustomersTab.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            OrdersTabPadge.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -138,5 +162,7 @@
         private View.Tabs.ItemsTab itemsTab1;
         private TabPage tabPage1;
         private View.Tabs.CartsTab CartsTabControl;
+        private TabPage OrdersTabPadge;
+        private View.Tabs.OrdersTab OrdersTab;
     }
 }

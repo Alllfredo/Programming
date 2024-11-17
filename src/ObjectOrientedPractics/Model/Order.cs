@@ -54,6 +54,15 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public DateTime Date
+        {
+            get { return _date; }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+        }
         /// <summary>
         /// Возвращает или задает адрес доставки.
         /// </summary>
@@ -91,7 +100,7 @@ namespace ObjectOrientedPractics.Model
             _id = _countId++;
             _date = DateTime.Now;
             Address = deliveryAddress;
-            Items = items ?? new List<Item>();
+            Items = new List<Item>();
             Status = OrderStatus.New;
         }
 

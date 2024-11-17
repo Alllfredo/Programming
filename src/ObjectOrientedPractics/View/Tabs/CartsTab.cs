@@ -10,8 +10,8 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class CartsTab : UserControl
     {
         private Customer _currentCustomer;
-        private List<Customer> _customers { get; set; }
-        private List<Item> _items { get; set; }
+        private List<Customer> _customers;
+        private List<Item> _items;
 
         public CartsTab()
         {
@@ -66,7 +66,8 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             CartsListBox.Items.Clear();
 
-            if (_currentCustomer != null && _currentCustomer.Cart.Items != null)
+            if (_currentCustomer != null
+                && _currentCustomer.Cart.Items != null)
             {
                 foreach (var item in _currentCustomer.Cart.Items)
                 {
@@ -96,29 +97,25 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer != null && ItemsListBox.SelectedItem != null)
+            if (_currentCustomer != null && ItemsListBox.SelectedIndex >= 0)
             {
-                var selectedItem = _items.FirstOrDefault(item => item.Name == ItemsListBox.SelectedItem.ToString());
-                if (selectedItem != null)
-                {
-                    _currentCustomer.Cart.Items.Add(selectedItem);
-                    UpdateCartListBox();
-                    UpdateTotalPrice();
-                }
+                var selectedItem = _items[ItemsListBox.SelectedIndex];
+                _currentCustomer.Cart.Items.Add(selectedItem);
+                UpdateCartListBox();
+                UpdateTotalPrice();
             }
         }
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer != null && CartsListBox.SelectedItem != null)
+            if (_currentCustomer != null && CartsListBox.SelectedIndex >= 0)
             {
-                var selectedItem = _currentCustomer.Cart.Items.FirstOrDefault(item => item.Name == CartsListBox.SelectedItem.ToString());
-                if (selectedItem != null)
-                {
-                    _currentCustomer.Cart.Items.Remove(selectedItem);
-                    UpdateCartListBox();
-                    UpdateTotalPrice();
-                }
+                var selectedItem =
+                    _currentCustomer.Cart.Items[CartsListBox.SelectedIndex];
+
+                _currentCustomer.Cart.Items.Remove(selectedItem);
+                UpdateCartListBox();
+                UpdateTotalPrice();
             }
         }
 
@@ -126,12 +123,14 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentCustomer != null && _currentCustomer.Cart.Items.Any())
             {
-
-                var newOrder = new Order(_currentCustomer.Address, new List<Item>(_currentCustomer.Cart.Items));
-                newOrder.Status = OrderStatus.New;
+                var newOrder = new Order(
+                    _currentCustomer.Address,
+                    new List<Item>(_currentCustomer.Cart.Items))
+                {
+                    Status = OrderStatus.New
+                };
 
                 _currentCustomer.Orders.Add(newOrder);
-
                 _currentCustomer.Cart.Items.Clear();
                 UpdateCartListBox();
                 UpdateTotalPrice();
@@ -145,6 +144,5 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateCartListBox();
             UpdateTotalPrice();
         }
-
     }
 }
