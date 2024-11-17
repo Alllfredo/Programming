@@ -203,7 +203,7 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel2.Controls.Add(CreateButton);
             panel2.Controls.Add(RemoveButton);
             panel2.Controls.Add(ClearButton);
