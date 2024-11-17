@@ -2,8 +2,15 @@
 {
     partial class CustomersTab
     {
+        /// <summary> 
+        /// Обязательная переменная конструктора.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary> 
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -13,6 +20,12 @@
             base.Dispose(disposing);
         }
 
+        #region Код, автоматически созданный конструктором компонентов
+
+        /// <summary> 
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
         private void InitializeComponent()
         {
             SelectedItemsLabel = new Label();
@@ -78,9 +91,10 @@
             RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             RemoveButton.AutoSize = true;
             RemoveButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            RemoveButton.Location = new Point(704, 620);
+            RemoveButton.Location = new Point(621, 650);
             RemoveButton.MinimumSize = new Size(131, 52);
             RemoveButton.Name = "RemoveButton";
+            RemoveButton.Padding = new Padding(1, 0, 1, 0);
             RemoveButton.Size = new Size(131, 52);
             RemoveButton.TabIndex = 20;
             RemoveButton.Text = "Remove";
@@ -92,9 +106,10 @@
             AddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             AddButton.AutoSize = true;
             AddButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            AddButton.Location = new Point(0, 620);
+            AddButton.Location = new Point(13, 650);
             AddButton.MinimumSize = new Size(131, 52);
             AddButton.Name = "AddButton";
+            AddButton.Padding = new Padding(1, 0, 1, 0);
             AddButton.Size = new Size(131, 52);
             AddButton.TabIndex = 19;
             AddButton.Text = "Add";
@@ -104,31 +119,34 @@
             // NameTextBox
             // 
             NameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            NameTextBox.Location = new Point(0, 0);
+            NameTextBox.Location = new Point(86, 89);
+            NameTextBox.MaximumSize = new Size(400, 400);
             NameTextBox.MinimumSize = new Size(100, 30);
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(269, 30);
-            NameTextBox.TabIndex = 0;
+            NameTextBox.Size = new Size(100, 27);
+            NameTextBox.TabIndex = 16;
             NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
             // IdTextBox
             // 
             IdTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            IdTextBox.Location = new Point(0, 0);
+            IdTextBox.Location = new Point(87, 56);
+            IdTextBox.MaximumSize = new Size(400, 400);
             IdTextBox.MinimumSize = new Size(100, 30);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
-            IdTextBox.Size = new Size(269, 30);
-            IdTextBox.TabIndex = 27;
+            IdTextBox.Size = new Size(100, 27);
+            IdTextBox.TabIndex = 15;
             // 
             // CustomersListBox
             // 
             CustomersListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CustomersListBox.FormattingEnabled = true;
             CustomersListBox.ItemHeight = 20;
-            CustomersListBox.Location = new Point(0, 0);
+            CustomersListBox.Location = new Point(13, 45);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(1443, 1204);
-            CustomersListBox.TabIndex = 0;
+            CustomersListBox.Size = new Size(739, 584);
+            CustomersListBox.TabIndex = 14;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // splitContainer1
@@ -148,17 +166,22 @@
             // 
             splitContainer1.Panel2.Controls.Add(AddressControl);
             splitContainer1.Panel2.Controls.Add(panel2);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             splitContainer1.Size = new Size(1023, 720);
-            splitContainer1.SplitterDistance = 825;
-            splitContainer1.TabIndex = 0;
+            splitContainer1.SplitterDistance = 775;
+            splitContainer1.TabIndex = 28;
             // 
             // AddressControl
             // 
+            AddressControl.AllowDrop = true;
             AddressControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            AddressControl.ForeColor = SystemColors.ActiveCaptionText;
             AddressControl.Location = new Point(3, 189);
             AddressControl.Name = "AddressControl";
-            AddressControl.Size = new Size(407, 871);
+            AddressControl.Size = new Size(238, 251);
             AddressControl.TabIndex = 0;
+            AddressControl.Load += AddressControl_Load;
+            AddressControl.Click += AddressControl_Click;
             // 
             // panel2
             // 
@@ -168,10 +191,10 @@
             panel2.Controls.Add(SelectedItemsLabel);
             panel2.Controls.Add(CostLabel);
             panel2.Controls.Add(IdTextBox);
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(3, 14);
             panel2.Name = "panel2";
-            panel2.Size = new Size(378, 776);
-            panel2.TabIndex = 1;
+            panel2.Size = new Size(209, 156);
+            panel2.TabIndex = 28;
             // 
             // CustomersTab
             // 
@@ -180,6 +203,7 @@
             Controls.Add(splitContainer1);
             Name = "CustomersTab";
             Size = new Size(1023, 720);
+            Click += CustomersTab_Click;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -190,19 +214,22 @@
             ResumeLayout(false);
         }
 
-        #region Private fields
+        #endregion
+
         private Label SelectedItemsLabel;
         private Label ItemsLabel;
         private Label CostLabel;
         private Label IdLabel;
+        private Label DicriptionLabel;
         private Button RemoveButton;
         private Button AddButton;
+        private TextBox DiscriptionTextBox;
         private TextBox NameTextBox;
+        private TextBox NameNextBox;
         private TextBox IdTextBox;
         private ListBox CustomersListBox;
         private SplitContainer splitContainer1;
         private Panel panel2;
         private Controls.AddressControl AddressControl;
-        #endregion
     }
 }
