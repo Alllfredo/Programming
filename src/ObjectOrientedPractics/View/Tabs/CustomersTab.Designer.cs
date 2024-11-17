@@ -123,7 +123,7 @@
             NameTextBox.MaximumSize = new Size(400, 400);
             NameTextBox.MinimumSize = new Size(100, 30);
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(100, 30);
+            NameTextBox.Size = new Size(100, 27);
             NameTextBox.TabIndex = 16;
             NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
@@ -135,7 +135,7 @@
             IdTextBox.MinimumSize = new Size(100, 30);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
-            IdTextBox.Size = new Size(100, 30);
+            IdTextBox.Size = new Size(100, 27);
             IdTextBox.TabIndex = 15;
             // 
             // CustomersListBox
@@ -178,7 +178,7 @@
             AddressControl.ForeColor = SystemColors.ActiveCaptionText;
             AddressControl.Location = new Point(3, 189);
             AddressControl.Name = "AddressControl";
-            AddressControl.Size = new Size(238, 384);
+            AddressControl.Size = new Size(238, 251);
             AddressControl.TabIndex = 0;
             AddressControl.Load += AddressControl_Load;
             AddressControl.Click += AddressControl_Click;

@@ -41,11 +41,13 @@
             CustomersLAbel = new Label();
             CreateButton = new Button();
             splitContainer1 = new SplitContainer();
+            panel2 = new Panel();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             // 
             // ItemsListBox
             // 
-            ItemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            ItemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ItemsListBox.FormattingEnabled = true;
             ItemsListBox.ItemHeight = 20;
             ItemsListBox.Location = new Point(3, 31);
@@ -84,7 +86,7 @@
             amountLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             amountLabel.AutoSize = true;
             amountLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            amountLabel.Location = new Point(12, 29);
+            amountLabel.Location = new Point(15, 27);
             amountLabel.Name = "amountLabel";
             amountLabel.Size = new Size(72, 37);
             amountLabel.TabIndex = 9;
@@ -96,7 +98,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(17, 9);
+            label2.Location = new Point(20, 7);
             label2.Name = "label2";
             label2.Size = new Size(67, 20);
             label2.TabIndex = 8;
@@ -105,7 +107,7 @@
             // RemoveButton
             // 
             RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            RemoveButton.Location = new Point(454, 436);
+            RemoveButton.Location = new Point(486, 5);
             RemoveButton.Margin = new Padding(5);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(131, 52);
@@ -117,7 +119,7 @@
             // ClearButton
             // 
             ClearButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ClearButton.Location = new Point(628, 436);
+            ClearButton.Location = new Point(625, 5);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(131, 52);
             ClearButton.TabIndex = 6;
@@ -126,7 +128,7 @@
             // 
             // CartsListBox
             // 
-            CartsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            CartsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CartsListBox.FormattingEnabled = true;
             CartsListBox.ItemHeight = 20;
             CartsListBox.Location = new Point(3, 57);
@@ -165,8 +167,8 @@
             // 
             // CreateButton
             // 
-            CreateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            CreateButton.Location = new Point(5, 436);
+            CreateButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CreateButton.Location = new Point(5, 5);
             CreateButton.Margin = new Padding(5);
             CreateButton.Name = "CreateButton";
             CreateButton.Size = new Size(131, 52);
@@ -189,10 +191,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(panel2);
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Panel2.Controls.Add(CreateButton);
-            splitContainer1.Panel2.Controls.Add(RemoveButton);
-            splitContainer1.Panel2.Controls.Add(ClearButton);
             splitContainer1.Panel2.Controls.Add(CustomersComboBox);
             splitContainer1.Panel2.Controls.Add(Cart);
             splitContainer1.Panel2.Controls.Add(CustomersLAbel);
@@ -201,6 +201,17 @@
             splitContainer1.SplitterDistance = 576;
             splitContainer1.TabIndex = 2;
             // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.Controls.Add(CreateButton);
+            panel2.Controls.Add(RemoveButton);
+            panel2.Controls.Add(ClearButton);
+            panel2.Location = new Point(3, 425);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(768, 62);
+            panel2.TabIndex = 11;
+            // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -208,7 +219,7 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(672, 327);
             panel1.Name = "panel1";
-            panel1.Size = new Size(87, 103);
+            panel1.Size = new Size(87, 64);
             panel1.TabIndex = 10;
             // 
             // CartsTab
@@ -224,6 +235,7 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -244,5 +256,6 @@
         private Label label2;
         private SplitContainer splitContainer1;
         private Panel panel1;
+        private Panel panel2;
     }
 }
