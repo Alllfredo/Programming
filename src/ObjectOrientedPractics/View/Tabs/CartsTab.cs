@@ -144,5 +144,6 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateCartListBox();
             UpdateTotalPrice();
         }
+
     }
 }

@@ -54,11 +54,17 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает время для объектов данного класса
+        /// </summary>
         public DateTime Date
         {
             get { return _date; }
         }
 
+        /// <summary>
+        /// Возвращает уникальный идентификатор для всех объектов данного класса
+        /// </summary>
         public int Id
         {
             get { return _id; }
@@ -82,7 +88,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Статус заказа.
+        /// Возвращает или задает статус заказа.
         /// </summary>
         public OrderStatus Status
         {
@@ -100,9 +106,8 @@ namespace ObjectOrientedPractics.Model
             _id = _countId++;
             _date = DateTime.Now;
             Address = deliveryAddress;
-            Items = new List<Item>();
+            Items = items ?? new List<Item>();
             Status = OrderStatus.New;
         }
-
     }
 }

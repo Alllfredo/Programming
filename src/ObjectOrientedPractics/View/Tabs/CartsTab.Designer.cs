@@ -78,7 +78,7 @@
             ItemsListBox.ItemHeight = 20;
             ItemsListBox.Location = new Point(3, 31);
             ItemsListBox.Name = "ItemsListBox";
-            ItemsListBox.Size = new Size(555, 404);
+            ItemsListBox.Size = new Size(549, 404);
             ItemsListBox.TabIndex = 0;
             // 
             // amountLabel
@@ -86,7 +86,7 @@
             amountLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             amountLabel.AutoSize = true;
             amountLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            amountLabel.Location = new Point(15, 27);
+            amountLabel.Location = new Point(675, 27);
             amountLabel.Name = "amountLabel";
             amountLabel.Size = new Size(72, 37);
             amountLabel.TabIndex = 9;
@@ -98,7 +98,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(20, 7);
+            label2.Location = new Point(677, 7);
             label2.Name = "label2";
             label2.Size = new Size(67, 20);
             label2.TabIndex = 8;
@@ -106,8 +106,8 @@
             // 
             // RemoveButton
             // 
-            RemoveButton.Anchor = AnchorStyles.Bottom;
-            RemoveButton.Location = new Point(492, 5);
+            RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            RemoveButton.Location = new Point(480, 5);
             RemoveButton.Margin = new Padding(5);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(131, 52);
@@ -118,8 +118,8 @@
             // 
             // ClearButton
             // 
-            ClearButton.Anchor = AnchorStyles.Bottom;
-            ClearButton.Location = new Point(628, 5);
+            ClearButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ClearButton.Location = new Point(616, 5);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(131, 52);
             ClearButton.TabIndex = 6;
@@ -133,7 +133,7 @@
             CartsListBox.ItemHeight = 20;
             CartsListBox.Location = new Point(3, 57);
             CartsListBox.Name = "CartsListBox";
-            CartsListBox.Size = new Size(756, 264);
+            CartsListBox.Size = new Size(750, 264);
             CartsListBox.TabIndex = 5;
             // 
             // Cart
@@ -152,7 +152,7 @@
             CustomersComboBox.FormattingEnabled = true;
             CustomersComboBox.Location = new Point(87, 5);
             CustomersComboBox.Name = "CustomersComboBox";
-            CustomersComboBox.Size = new Size(672, 28);
+            CustomersComboBox.Size = new Size(666, 28);
             CustomersComboBox.TabIndex = 3;
             CustomersComboBox.SelectedIndexChanged += CustomersComboBox_SelectedIndexChanged;
             // 
@@ -197,8 +197,8 @@
             splitContainer1.Panel2.Controls.Add(Cart);
             splitContainer1.Panel2.Controls.Add(CustomersLAbel);
             splitContainer1.Panel2.Controls.Add(CartsListBox);
-            splitContainer1.Size = new Size(1354, 490);
-            splitContainer1.SplitterDistance = 576;
+            splitContainer1.Size = new Size(1342, 490);
+            splitContainer1.SplitterDistance = 570;
             splitContainer1.TabIndex = 2;
             // 
             // panel2
@@ -209,7 +209,7 @@
             panel2.Controls.Add(ClearButton);
             panel2.Location = new Point(0, 428);
             panel2.Name = "panel2";
-            panel2.Size = new Size(774, 62);
+            panel2.Size = new Size(750, 62);
             panel2.TabIndex = 11;
             // 
             // panel1
@@ -217,9 +217,9 @@
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.Controls.Add(amountLabel);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(672, 327);
+            panel1.Location = new Point(3, 327);
             panel1.Name = "panel1";
-            panel1.Size = new Size(87, 64);
+            panel1.Size = new Size(750, 64);
             panel1.TabIndex = 10;
             // 
             // CartsTab
