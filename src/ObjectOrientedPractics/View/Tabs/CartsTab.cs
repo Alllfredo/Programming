@@ -145,5 +145,14 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateTotalPrice();
         }
 
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            if (_currentCustomer != null)
+            {
+                _currentCustomer.Cart.Items.Clear();
+                UpdateCartListBox();
+                UpdateTotalPrice();
+            }
+        }
     }
 }

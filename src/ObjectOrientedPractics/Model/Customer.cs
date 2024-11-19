@@ -41,6 +41,7 @@ namespace ObjectOrientedPractics
         /// Поле для хранения списка товаро
         /// </summary>
         private List<Order> _orders;
+
         /// <summary>
         /// Возвращает и задает ФИО. Длина небольше 200 символов
         /// </summary>

@@ -69,6 +69,7 @@ namespace ObjectOrientedPractics.Model
         {
             get { return _id; }
         }
+
         /// <summary>
         /// Возвращает или задает адрес доставки.
         /// </summary>
