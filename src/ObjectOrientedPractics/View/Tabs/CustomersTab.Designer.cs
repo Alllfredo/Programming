@@ -40,6 +40,7 @@
             splitContainer1 = new SplitContainer();
             AddressControl = new Controls.AddressControl();
             panel2 = new Panel();
+            PropertyCheckBox = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -186,6 +187,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(PropertyCheckBox);
             panel2.Controls.Add(NameTextBox);
             panel2.Controls.Add(IdLabel);
             panel2.Controls.Add(SelectedItemsLabel);
@@ -195,6 +197,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(209, 156);
             panel2.TabIndex = 28;
+            // 
+            // PropertyCheckBox
+            // 
+            PropertyCheckBox.AutoSize = true;
+            PropertyCheckBox.Location = new Point(86, 122);
+            PropertyCheckBox.Name = "PropertyCheckBox";
+            PropertyCheckBox.Size = new Size(101, 24);
+            PropertyCheckBox.TabIndex = 27;
+            PropertyCheckBox.Text = "Is Property";
+            PropertyCheckBox.UseVisualStyleBackColor = true;
+            PropertyCheckBox.CheckedChanged += PropertyCheckBox_CheckedChanged;
             // 
             // CustomersTab
             // 
@@ -231,5 +244,6 @@
         private SplitContainer splitContainer1;
         private Panel panel2;
         private Controls.AddressControl AddressControl;
+        private CheckBox PropertyCheckBox;
     }
 }

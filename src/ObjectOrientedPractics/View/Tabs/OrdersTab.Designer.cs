@@ -48,12 +48,17 @@
             label4 = new Label();
             OrderItemsListBox = new ListBox();
             splitContainer1 = new SplitContainer();
+            PrioretyPanel = new Panel();
+            DeliveryComboBox = new ComboBox();
+            label8 = new Label();
+            label7 = new Label();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)OrdersDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            PrioretyPanel.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,7 +78,7 @@
             OrdersDataGridView.RowHeadersVisible = false;
             OrdersDataGridView.RowHeadersWidth = 51;
             OrdersDataGridView.RowTemplate.Height = 29;
-            OrdersDataGridView.Size = new Size(523, 541);
+            OrdersDataGridView.Size = new Size(558, 541);
             OrdersDataGridView.TabIndex = 1;
             OrdersDataGridView.SelectionChanged += OrdersDataGridView_SelectionChanged;
             // 
@@ -144,7 +149,7 @@
             AddressControl.ImeMode = ImeMode.NoControl;
             AddressControl.Location = new Point(3, 159);
             AddressControl.Name = "AddressControl";
-            AddressControl.Size = new Size(395, 228);
+            AddressControl.Size = new Size(424, 228);
             AddressControl.TabIndex = 2;
             // 
             // label3
@@ -224,7 +229,7 @@
             OrderItemsListBox.ItemHeight = 20;
             OrderItemsListBox.Location = new Point(3, 413);
             OrderItemsListBox.Name = "OrderItemsListBox";
-            OrderItemsListBox.Size = new Size(395, 164);
+            OrderItemsListBox.Size = new Size(424, 164);
             OrderItemsListBox.TabIndex = 11;
             // 
             // splitContainer1
@@ -240,14 +245,54 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(PrioretyPanel);
             splitContainer1.Panel2.Controls.Add(panel1);
             splitContainer1.Panel2.Controls.Add(AddressControl);
             splitContainer1.Panel2.Controls.Add(OrderItemsListBox);
             splitContainer1.Panel2.Controls.Add(label4);
             splitContainer1.Panel2.Controls.Add(label3);
-            splitContainer1.Size = new Size(961, 586);
-            splitContainer1.SplitterDistance = 528;
+            splitContainer1.Size = new Size(1025, 586);
+            splitContainer1.SplitterDistance = 563;
             splitContainer1.TabIndex = 12;
+            // 
+            // PrioretyPanel
+            // 
+            PrioretyPanel.Controls.Add(DeliveryComboBox);
+            PrioretyPanel.Controls.Add(label8);
+            PrioretyPanel.Controls.Add(label7);
+            PrioretyPanel.Location = new Point(250, 3);
+            PrioretyPanel.Name = "PrioretyPanel";
+            PrioretyPanel.Size = new Size(205, 130);
+            PrioretyPanel.TabIndex = 13;
+            // 
+            // DeliveryComboBox
+            // 
+            DeliveryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            DeliveryComboBox.FormattingEnabled = true;
+            DeliveryComboBox.Items.AddRange(new object[] { "9:00 – 11:00", "11:00 – 13:00", "13:00 – 15:00", "15:00 – 17:00", "17:00 – 19:00", "19:00 – 21:00" });
+            DeliveryComboBox.Location = new Point(104, 27);
+            DeliveryComboBox.Name = "DeliveryComboBox";
+            DeliveryComboBox.Size = new Size(98, 28);
+            DeliveryComboBox.TabIndex = 10;
+            DeliveryComboBox.SelectedIndexChanged += DeliveryComboBox_SelectedIndexChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(3, 31);
+            label8.Name = "label8";
+            label8.Size = new Size(103, 20);
+            label8.TabIndex = 10;
+            label8.Text = "Delivery Time:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 1);
+            label7.Name = "label7";
+            label7.Size = new Size(102, 20);
+            label7.TabIndex = 10;
+            label7.Text = "Priorety Order";
             // 
             // panel1
             // 
@@ -260,7 +305,7 @@
             panel1.Controls.Add(label6);
             panel1.Location = new Point(3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(395, 129);
+            panel1.Size = new Size(241, 129);
             panel1.TabIndex = 12;
             // 
             // OrdersTab
@@ -269,7 +314,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "OrdersTab";
-            Size = new Size(961, 586);
+            Size = new Size(1025, 586);
             ((System.ComponentModel.ISupportInitialize)OrdersDataGridView).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
@@ -277,6 +322,8 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            PrioretyPanel.ResumeLayout(false);
+            PrioretyPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -304,5 +351,9 @@
         private DataGridViewTextBoxColumn DeliveryAddress;
         private DataGridViewTextBoxColumn TotalPrice;
         private Panel panel1;
+        private Panel PrioretyPanel;
+        private ComboBox DeliveryComboBox;
+        private Label label8;
+        private Label label7;
     }
 }

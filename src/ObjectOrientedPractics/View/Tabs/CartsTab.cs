@@ -123,19 +123,45 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (_currentCustomer != null && _currentCustomer.Cart.Items.Any())
             {
-                var newOrder = new Order(
-                    _currentCustomer.Address,
-                    new List<Item>(_currentCustomer.Cart.Items))
+                if (_currentCustomer.IsPriority == false)
                 {
-                    Status = OrderStatus.New
-                };
+                    var newOrder = new Order(
+                        _currentCustomer.Address,
+                        new List<Item>(_currentCustomer.Cart.Items))
+                    {
+                        Status = OrderStatus.New
+                    };
 
-                _currentCustomer.Orders.Add(newOrder);
+                    _currentCustomer.Orders.Add(newOrder);
+                }
+                else
+                {
+                    var newOrder = new PriorityOrder(
+                        _currentCustomer.Address,
+                        new List<Item>(_currentCustomer.Cart.Items))
+                    {
+                        Status = OrderStatus.New,
+                        Time = OrderTime.FromNineToElevenAM // Значение по умолчанию для времени доставки
+                    };
+
+                    _currentCustomer.Orders.Add(newOrder);
+                }
+
+                // Очистка корзины
                 _currentCustomer.Cart.Items.Clear();
+
+                // Обновление интерфейса
                 UpdateCartListBox();
                 UpdateTotalPrice();
+
+                MessageBox.Show("Заказ успешно создан!");
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста или клиент не выбран.");
             }
         }
+
 
         public void RefreshData()
         {

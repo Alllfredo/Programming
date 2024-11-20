@@ -55,6 +55,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             AddressControl.Enabled = false;
+            StatusComboBox.DataSource = Enum.GetValues(typeof(OrderStatus));
         }
 
 

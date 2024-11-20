@@ -43,6 +43,11 @@ namespace ObjectOrientedPractics
         private List<Order> _orders;
 
         /// <summary>
+        /// Возвращает и задает флаг, приоритетный ли покупатель.
+        /// </summary>
+        public bool IsPriority { get; set; } = false;
+
+        /// <summary>
         /// Возвращает и задает ФИО. Длина небольше 200 символов
         /// </summary>
         public string Fullname

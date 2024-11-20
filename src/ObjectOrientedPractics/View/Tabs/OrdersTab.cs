@@ -9,6 +9,7 @@ namespace ObjectOrientedPractics.View.Tabs
     {
         private List<Customer> _customers = new List<Customer>();
         private Order _currentOrder;
+        private PriorityOrder _selectedPriorityOrder;
 
         public List<Customer> Customers
         {
@@ -24,6 +25,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             StatusComboBox.DataSource = Enum.GetValues(typeof(OrderStatus));
+            PrioretyPanel.Visible = false;
         }
 
         public void UpdateOrders()
@@ -78,6 +80,18 @@ namespace ObjectOrientedPractics.View.Tabs
                     if (order.Id == orderId)
                     {
                         ShowOrderDetails(order, customer);
+
+                        if (order is PriorityOrder priorityOrder)
+                        {
+                            PrioretyPanel.Visible = true;
+                            _selectedPriorityOrder = priorityOrder;
+                        }
+                        else
+                        {
+                            PrioretyPanel.Visible = false;
+                            _selectedPriorityOrder = null;
+                        }
+
                         return;
                     }
                 }
@@ -107,23 +121,31 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_currentOrder != null)
-            {
-                var selectedStatus = (OrderStatus)StatusComboBox.SelectedItem;
-                _currentOrder.Status = selectedStatus;
-                UpdateOrderStatusInGrid(_currentOrder.Id, selectedStatus);
-            }
+            if (_currentOrder == null) return;
+
+
+            var selectedStatus = (OrderStatus)StatusComboBox.SelectedItem;
+            _currentOrder.Status = selectedStatus;
+            UpdateOrderStatusInGrid(_currentOrder.Id, selectedStatus);
         }
 
         private void UpdateOrderStatusInGrid(int orderId, OrderStatus status)
         {
             foreach (DataGridViewRow row in OrdersDataGridView.Rows)
             {
-                if ((int)row.Cells["OrderId"].Value == orderId)
+                if (row.Cells["OrderId"].Value != null && (int)row.Cells["OrderId"].Value == orderId)
                 {
                     row.Cells["OrderStatus"].Value = status;
                     break;
                 }
+            }
+        }
+
+        private void DeliveryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_selectedPriorityOrder != null)
+            {
+                _selectedPriorityOrder.Time = (OrderTime)(DeliveryComboBox.SelectedIndex + 1);
             }
         }
     }

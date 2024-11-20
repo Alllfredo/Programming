@@ -53,6 +53,12 @@ namespace ObjectOrientedPractics.View.Tabs
 
                     Customer addCustomer = new Customer(
                         NameTextBox.Text, new Address(AddressControl.Address));
+
+                    if (PropertyCheckBox.Checked)
+                    {
+                        addCustomer.IsPriority = true;
+                    }
+
                     _customers.Add(addCustomer);
                     CustomersListBox.Items.Add(addCustomer.Fullname);
                     CustomersClear();
@@ -88,6 +94,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 AddressControl.Address = _customer.Address;
                 IdTextBox.Text = Convert.ToString(_customer.Id);
                 AddButton.Enabled = false;
+
+                PropertyCheckBox.Checked = _customer.IsPriority;
             }
         }
 
@@ -127,6 +135,7 @@ namespace ObjectOrientedPractics.View.Tabs
             NameTextBox.Text = "";
             AddressControl.Clear();
             IdTextBox.Text = "";
+            PropertyCheckBox.Checked = false;
 
             NameTextBox.BackColor = Color.White;
             IdTextBox.BackColor = Color.White;
@@ -152,6 +161,15 @@ namespace ObjectOrientedPractics.View.Tabs
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void PropertyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            int ind = CustomersListBox.SelectedIndex;
+            if (ind >= 0)
+            {
+                _customers[ind].IsPriority = PropertyCheckBox.Checked;
+            }
         }
     }
 }
