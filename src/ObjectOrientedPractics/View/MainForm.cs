@@ -1,6 +1,7 @@
-using System.Text.Json;
 using System.Windows.Forms;
+using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Tabs;
+using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics
 {
@@ -11,7 +12,7 @@ namespace ObjectOrientedPractics
         public MainForm()
         {
             InitializeComponent();
-            _store = new Store();
+    
             itemsTab1.Items = _store.Items;
             customersTab1.Customers = _store.Customers;
 
@@ -37,6 +38,16 @@ namespace ObjectOrientedPractics
             {
                 prioretyOrdersTab1.UpdateOrderDetails();
             }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

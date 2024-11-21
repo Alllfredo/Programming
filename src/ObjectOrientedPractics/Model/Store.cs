@@ -2,7 +2,7 @@
 /// <summary>
 /// Представляет магазин, который содержит товары и клиентов
 /// </summary>
-internal class Store
+public class Store
 {
     /// <summary>
     /// Хранит список товаров в магазине

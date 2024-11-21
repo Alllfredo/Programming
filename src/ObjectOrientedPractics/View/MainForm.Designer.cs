@@ -171,6 +171,8 @@
             ClientSize = new Size(1112, 868);
             Controls.Add(TabControl);
             Name = "MainForm";
+            FormClosed += MainForm_FormClosed;
+            Load += MainForm_Load;
             TabControl.ResumeLayout(false);
             ItemsTabPage.ResumeLayout(false);
             CustomersTab.ResumeLayout(false);
