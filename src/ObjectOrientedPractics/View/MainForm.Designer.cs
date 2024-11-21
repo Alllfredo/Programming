@@ -29,78 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            TabControl = new TabControl();
-            ItemsTabPage = new TabPage();
-            itemsTab1 = new View.Tabs.ItemsTab();
-            CustomersTab = new TabPage();
-            customersTab1 = new View.Tabs.CustomersTab();
-            tabPage1 = new TabPage();
-            CartsTabControl = new View.Tabs.CartsTab();
             OrdersTabPadge = new TabPage();
             OrdersTab = new View.Tabs.OrdersTab();
-            PriorityOrder = new TabPage();
-            prioretyOrdersTab1 = new View.Tabs.PrioretyOrdersTab();
-            TabControl.SuspendLayout();
-            ItemsTabPage.SuspendLayout();
-            CustomersTab.SuspendLayout();
-            tabPage1.SuspendLayout();
+            tabPage1 = new TabPage();
+            CartsTabControl = new View.Tabs.CartsTab();
+            CustomersTab = new TabPage();
+            customersTab1 = new View.Tabs.CustomersTab();
+            ItemsTabPage = new TabPage();
+            itemsTab1 = new View.Tabs.ItemsTab();
+            TabControl = new TabControl();
             OrdersTabPadge.SuspendLayout();
-            PriorityOrder.SuspendLayout();
+            tabPage1.SuspendLayout();
+            CustomersTab.SuspendLayout();
+            ItemsTabPage.SuspendLayout();
+            TabControl.SuspendLayout();
             SuspendLayout();
             // 
-            // TabControl
+            // OrdersTabPadge
             // 
-            TabControl.Controls.Add(ItemsTabPage);
-            TabControl.Controls.Add(CustomersTab);
-            TabControl.Controls.Add(tabPage1);
-            TabControl.Controls.Add(OrdersTabPadge);
-            TabControl.Controls.Add(PriorityOrder);
-            TabControl.Dock = DockStyle.Fill;
-            TabControl.Location = new Point(0, 0);
-            TabControl.Name = "TabControl";
-            TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(1112, 868);
-            TabControl.TabIndex = 0;
-            TabControl.SelectedIndexChanged += CartsTabControl_SelectedIndexChanged;
+            OrdersTabPadge.Controls.Add(OrdersTab);
+            OrdersTabPadge.Location = new Point(4, 29);
+            OrdersTabPadge.Name = "OrdersTabPadge";
+            OrdersTabPadge.Padding = new Padding(3);
+            OrdersTabPadge.Size = new Size(1104, 835);
+            OrdersTabPadge.TabIndex = 3;
+            OrdersTabPadge.Text = "Orders";
+            OrdersTabPadge.UseVisualStyleBackColor = true;
             // 
-            // ItemsTabPage
+            // OrdersTab
             // 
-            ItemsTabPage.Controls.Add(itemsTab1);
-            ItemsTabPage.Location = new Point(4, 29);
-            ItemsTabPage.Name = "ItemsTabPage";
-            ItemsTabPage.Padding = new Padding(3);
-            ItemsTabPage.Size = new Size(1104, 835);
-            ItemsTabPage.TabIndex = 0;
-            ItemsTabPage.Text = "Items";
-            ItemsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // itemsTab1
-            // 
-            itemsTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            itemsTab1.Dock = DockStyle.Fill;
-            itemsTab1.Location = new Point(3, 3);
-            itemsTab1.Name = "itemsTab1";
-            itemsTab1.Size = new Size(1098, 829);
-            itemsTab1.TabIndex = 0;
-            // 
-            // CustomersTab
-            // 
-            CustomersTab.Controls.Add(customersTab1);
-            CustomersTab.Location = new Point(4, 29);
-            CustomersTab.Name = "CustomersTab";
-            CustomersTab.Padding = new Padding(3);
-            CustomersTab.Size = new Size(1104, 835);
-            CustomersTab.TabIndex = 1;
-            CustomersTab.Text = "Customers";
-            CustomersTab.UseVisualStyleBackColor = true;
-            // 
-            // customersTab1
-            // 
-            customersTab1.Dock = DockStyle.Fill;
-            customersTab1.Location = new Point(3, 3);
-            customersTab1.Name = "customersTab1";
-            customersTab1.Size = new Size(1098, 829);
-            customersTab1.TabIndex = 0;
+            OrdersTab.Dock = DockStyle.Fill;
+            OrdersTab.Location = new Point(3, 3);
+            OrdersTab.Name = "OrdersTab";
+            OrdersTab.Size = new Size(1098, 829);
+            OrdersTab.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -123,46 +85,58 @@
             CartsTabControl.Size = new Size(1098, 829);
             CartsTabControl.TabIndex = 0;
             // 
-            // OrdersTabPadge
+            // CustomersTab
             // 
-            OrdersTabPadge.Controls.Add(OrdersTab);
-            OrdersTabPadge.Location = new Point(4, 29);
-            OrdersTabPadge.Name = "OrdersTabPadge";
-            OrdersTabPadge.Padding = new Padding(3);
-            OrdersTabPadge.Size = new Size(1104, 835);
-            OrdersTabPadge.TabIndex = 3;
-            OrdersTabPadge.Text = "Orders";
-            OrdersTabPadge.UseVisualStyleBackColor = true;
+            CustomersTab.Controls.Add(customersTab1);
+            CustomersTab.Location = new Point(4, 29);
+            CustomersTab.Name = "CustomersTab";
+            CustomersTab.Padding = new Padding(3);
+            CustomersTab.Size = new Size(1104, 835);
+            CustomersTab.TabIndex = 1;
+            CustomersTab.Text = "Customers";
+            CustomersTab.UseVisualStyleBackColor = true;
             // 
-            // OrdersTab
+            // customersTab1
             // 
-            OrdersTab.Dock = DockStyle.Fill;
-            OrdersTab.Location = new Point(3, 3);
-            OrdersTab.Name = "OrdersTab";
-            OrdersTab.Size = new Size(1098, 829);
-            OrdersTab.TabIndex = 0;
+            customersTab1.Dock = DockStyle.Fill;
+            customersTab1.Location = new Point(3, 3);
+            customersTab1.Name = "customersTab1";
+            customersTab1.Size = new Size(1098, 829);
+            customersTab1.TabIndex = 0;
             // 
-            // PriorityOrder
+            // ItemsTabPage
             // 
-            PriorityOrder.Controls.Add(prioretyOrdersTab1);
-            PriorityOrder.Location = new Point(4, 29);
-            PriorityOrder.Name = "PriorityOrder";
-            PriorityOrder.Padding = new Padding(3);
-            PriorityOrder.Size = new Size(1104, 835);
-            PriorityOrder.TabIndex = 4;
-            PriorityOrder.Text = "Proirety Order";
-            PriorityOrder.UseVisualStyleBackColor = true;
+            ItemsTabPage.Controls.Add(itemsTab1);
+            ItemsTabPage.Location = new Point(4, 29);
+            ItemsTabPage.Name = "ItemsTabPage";
+            ItemsTabPage.Padding = new Padding(3);
+            ItemsTabPage.Size = new Size(1104, 835);
+            ItemsTabPage.TabIndex = 0;
+            ItemsTabPage.Text = "Items";
+            ItemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // prioretyOrdersTab1
+            // itemsTab1
             // 
-            prioretyOrdersTab1.Customers = null;
-            prioretyOrdersTab1.Dock = DockStyle.Fill;
-            prioretyOrdersTab1.Items = null;
-            prioretyOrdersTab1.Location = new Point(3, 3);
-            prioretyOrdersTab1.Name = "prioretyOrdersTab1";
-            prioretyOrdersTab1.PriorityOrder = null;
-            prioretyOrdersTab1.Size = new Size(1098, 829);
-            prioretyOrdersTab1.TabIndex = 0;
+            itemsTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            itemsTab1.Dock = DockStyle.Fill;
+            itemsTab1.Location = new Point(3, 3);
+            itemsTab1.Name = "itemsTab1";
+            itemsTab1.Size = new Size(1098, 829);
+            itemsTab1.TabIndex = 0;
+            // 
+            // TabControl
+            // 
+            TabControl.Controls.Add(ItemsTabPage);
+            TabControl.Controls.Add(CustomersTab);
+            TabControl.Controls.Add(tabPage1);
+            TabControl.Controls.Add(OrdersTabPadge);
+            TabControl.Dock = DockStyle.Fill;
+            TabControl.Location = new Point(0, 0);
+            TabControl.Name = "TabControl";
+            TabControl.SelectedIndex = 0;
+            TabControl.Size = new Size(1112, 868);
+            TabControl.TabIndex = 0;
+            TabControl.SelectedIndexChanged += CartsTabControl_SelectedIndexChanged;
             // 
             // MainForm
             // 
@@ -173,12 +147,11 @@
             Name = "MainForm";
             FormClosed += MainForm_FormClosed;
             Load += MainForm_Load;
-            TabControl.ResumeLayout(false);
-            ItemsTabPage.ResumeLayout(false);
-            CustomersTab.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
             OrdersTabPadge.ResumeLayout(false);
-            PriorityOrder.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            CustomersTab.ResumeLayout(false);
+            ItemsTabPage.ResumeLayout(false);
+            TabControl.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -195,6 +168,5 @@
         private View.Tabs.OrdersTab OrdersTab;
         private TabPage PriorityOrder;
         private System.CodeDom.CodeTypeReference priioretyOrdersTab1;
-        private View.Tabs.PrioretyOrdersTab prioretyOrdersTab1;
     }
 }

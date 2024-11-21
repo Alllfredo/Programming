@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model.Discounts
 {
-    internal class PointsDiscount
+    internal class PointsDiscount: IDiscount
     {
         private int _points;
 

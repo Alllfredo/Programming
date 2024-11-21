@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Order
 {
     public class Order
     {
@@ -37,6 +37,11 @@ namespace ObjectOrientedPractics.Model
         /// Статус заказа.
         /// </summary>
         private OrderStatus _status;
+
+        /// <summary>
+        /// Суммарная скидка заказа.
+        /// </summary>
+        public double DiscountAmount { get; }
 
         /// <summary>
         /// Вычисляет и возвращает общую стоимость заказа, суммируя стоимость всех товаров.
@@ -98,17 +103,29 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возращает конечную стоимость заказа.
+        /// </summary>
+        public double Total
+        {
+            get
+            {
+                return TotalAmount - DiscountAmount;
+            }
+        }
+
+        /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Order"/> с указанными адресом доставки и списком товаров.
         /// </summary>
         /// <param name="deliveryAddress">Адрес доставки.</param>
         /// <param name="items">Список товаров.</param>
-        public Order(Address deliveryAddress, List<Item> items)
+        public Order(Address deliveryAddress, List<Item> items, double discountAmount)
         {
             _id = _countId++;
             _date = DateTime.Now;
             Address = deliveryAddress;
             Items = items ?? new List<Item>();
             Status = OrderStatus.New;
+            DiscountAmount = discountAmount;
         }
     }
 }

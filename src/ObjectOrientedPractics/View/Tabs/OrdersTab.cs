@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ObjectOrientedPractics.Model.Order;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

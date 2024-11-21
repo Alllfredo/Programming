@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ObjectOrientedPractics;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Order;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -127,7 +128,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     var newOrder = new Order(
                         _currentCustomer.Address,
-                        new List<Item>(_currentCustomer.Cart.Items))
+                        new List<Item>(_currentCustomer.Cart.Items), 0)
                     {
                         Status = OrderStatus.New
                     };
@@ -138,7 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     var newOrder = new PriorityOrder(
                         _currentCustomer.Address,
-                        new List<Item>(_currentCustomer.Cart.Items))
+                        new List<Item>(_currentCustomer.Cart.Items), 0)
                     {
                         Status = OrderStatus.New,
                         Time = OrderTime.FromNineToElevenAM // Значение по умолчанию для времени доставки

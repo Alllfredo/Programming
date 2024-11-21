@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Order;
 
-namespace ObjectOrientedPractics
+namespace ObjectOrientedPractics.Model.Order
 {
     /// <summary>
     /// Хранит данные о приоритетном заказе.
@@ -29,7 +30,8 @@ namespace ObjectOrientedPractics
         /// <param name="items">Список товаров заказа.</param>
         public PriorityOrder(
             Address address,
-            List<Item> items) : base(address, items)
+            List<Item> items,
+            double discountAmount) : base(address, items, discountAmount)
         {
             Date = DateTime.Now;
         }

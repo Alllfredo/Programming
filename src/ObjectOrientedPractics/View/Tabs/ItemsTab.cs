@@ -52,7 +52,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 Item addItem = new Item(
                     NameTextBox.Text, DiscriptionTextBox.Text,
-                    Convert.ToDouble(CostTextBox.Text),
+                    float.Parse(CostTextBox.Text),
                     (Category)CategoryComboBox.SelectedItem);
 
                 _items.Add(addItem);
@@ -122,7 +122,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
                     _items[ItemsListBox.SelectedIndex].Cost =
-                        Convert.ToDouble(CostTextBox.Text);
+                        float.Parse(CostTextBox.Text);
 
                     ItemsListBox.Items[ItemsListBox.SelectedIndex] =
                         (_items[ItemsListBox.SelectedIndex].Name +

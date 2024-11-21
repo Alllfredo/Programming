@@ -12,7 +12,7 @@ namespace ObjectOrientedPractics
         public MainForm()
         {
             InitializeComponent();
-    
+            _store = new Store();
             itemsTab1.Items = _store.Items;
             customersTab1.Customers = _store.Customers;
 
@@ -20,8 +20,6 @@ namespace ObjectOrientedPractics
             CartsTabControl.Customers = _store.Customers;
 
             OrdersTab.Customers = _store.Customers;
-
-            prioretyOrdersTab1.Items = _store.Items;
         }
 
         private void CartsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,10 +31,6 @@ namespace ObjectOrientedPractics
             if (TabControl.SelectedIndex == 3)
             {
                 OrdersTab.RefreshData();
-            }
-            if (TabControl.SelectedIndex == 4)
-            {
-                prioretyOrdersTab1.UpdateOrderDetails();
             }
         }
 

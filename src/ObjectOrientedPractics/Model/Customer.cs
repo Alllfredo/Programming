@@ -1,5 +1,7 @@
 ﻿using ObjectOrientedPractics;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.Model.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,6 +100,11 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
+        /// Возвращает и задает скидки покупателя.
+        /// </summary>
+        public List<IDiscount> Discounts { get; set; }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">ФИО, длина небольше 200 смиволов</param>
@@ -110,6 +117,8 @@ namespace ObjectOrientedPractics
             Fullname = fullname;
             Address = address;
             Orders = new List<Order>();
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
     }
 }
