@@ -35,7 +35,7 @@ namespace ObjectOrientedPractics
         /// <summary>
         /// Информация о стоимости товара
         /// </summary>
-        private double _cost;
+        private float _cost;
 
         public Category Category { get; set; }
 
@@ -68,7 +68,7 @@ namespace ObjectOrientedPractics
         /// <summary>
         /// Возвращает и задает стоимость товара. Длина строки не больше 1000 символов.
         /// </summary>
-        public double Cost
+        public float Cost
         {
             get { return _cost; }
             set
@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics
         /// <param name="info"></param>
         /// <param name="cost"></param>
         /// <param name="category">Категория товара.</param>
-        public Item(string name, string info, double cost, Category category)
+        public Item(string name, string info, float cost, Category category)
         {
             _countId += 1;
             _id = _countId;
