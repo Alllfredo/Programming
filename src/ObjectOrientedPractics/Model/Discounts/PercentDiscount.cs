@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Enums;
 using System.Collections.Generic;
 
 namespace ObjectOrientedPractics.Model.Discounts

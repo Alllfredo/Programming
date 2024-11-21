@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using ObjectOrientedPractics;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Model.Order;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

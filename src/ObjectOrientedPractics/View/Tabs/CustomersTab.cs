@@ -1,4 +1,6 @@
-﻿using ObjectOrientedPractics.View.Controls;
+﻿using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.View.Controls;
+using ObjectOrientedPractics.View.Pop_ups;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -96,6 +99,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 AddButton.Enabled = false;
 
                 PropertyCheckBox.Checked = _customer.IsPriority;
+                UpdateDiscountsListBox(Customers[CustomersListBox.SelectedIndex]);
             }
         }
 
@@ -170,6 +174,57 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _customers[ind].IsPriority = PropertyCheckBox.Checked;
             }
+        }
+
+        private void AddDiscountsButton_Click(object sender, EventArgs e)
+        {
+            var addDiscountPopUp = new AddDiscountForm(Customers[CustomersListBox.SelectedIndex]);
+
+            if (addDiscountPopUp.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var discount = new PercentDiscount(addDiscountPopUp.Category);
+            Customers[CustomersListBox.SelectedIndex].Discounts.Add(discount);
+            UpdateDiscountsListBox(Customers[CustomersListBox.SelectedIndex]);
+        }
+
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            var removedIndex = DiscountsListBox.SelectedIndex;
+            Customers[CustomersListBox.SelectedIndex].Discounts.RemoveAt(
+                DiscountsListBox.SelectedIndex);
+            UpdateDiscountsListBox(Customers[CustomersListBox.SelectedIndex]);
+
+            if (removedIndex >= DiscountsListBox.Items.Count)
+            {
+                DiscountsListBox.SelectedIndex = removedIndex - 1;
+            }
+            else
+            {
+                DiscountsListBox.SelectedIndex = removedIndex;
+            }
+        }
+
+        private void UpdateDiscountsListBox(Customer customer)
+        {
+            DiscountsListBox.Items.Clear();
+
+            foreach (var discount in customer.Discounts)
+            {
+                DiscountsListBox.Items.Add(discount.Info);
+            }
+        }
+
+        public void UpdateDiscountsListBox()
+        {
+            if (CustomersListBox.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            UpdateDiscountsListBox(Customers[CustomersListBox.SelectedIndex]);
         }
     }
 }

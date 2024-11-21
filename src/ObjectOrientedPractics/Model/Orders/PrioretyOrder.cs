@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Model.Order;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.Model.Order
 {
