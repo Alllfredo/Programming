@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Tabs;
@@ -20,6 +21,14 @@ namespace ObjectOrientedPractics
             CartsTabControl.Customers = _store.Customers;
 
             OrdersTab.Customers = _store.Customers;
+
+            itemsTab1.ItemsChanged += ItemsTab_ItemsChanged;
+        }
+
+        private void ItemsTab_ItemsChanged(object sender, EventArgs e)
+        {
+            CartsTabControl.RefreshData();
+            OrdersTab.RefreshData();
         }
 
         private void CartsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,12 +45,10 @@ namespace ObjectOrientedPractics
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

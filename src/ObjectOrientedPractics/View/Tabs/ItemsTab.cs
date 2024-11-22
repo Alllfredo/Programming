@@ -13,8 +13,10 @@ namespace ObjectOrientedPractics.View.Tabs
     {
         private List<Item> _items = new List<Item>();
         private Item _item;
-        private List<Item> _displayedItems;
+        private List<Item> _displayedItems = new();
 
+
+        public event EventHandler<EventArgs> ItemsChanged;
         public List<Item> Items
         {
             get => _items;
@@ -22,6 +24,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _items = value;
                 UpdateItemsListBox();
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -44,10 +47,16 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void UpdateItemsListBox()
         {
+            int selectedIndex = ItemsListBox.SelectedIndex;
             ItemsListBox.Items.Clear();
             foreach (var item in _displayedItems)
             {
                 ItemsListBox.Items.Add(item.Name);
+            }
+
+            if (selectedIndex >= 0 && selectedIndex < ItemsListBox.Items.Count)
+            {
+                ItemsListBox.SelectedIndex = selectedIndex;
             }
         }
 
@@ -78,8 +87,13 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 _items.Add(addItem);
                 ItemsListBox.Items.Add(addItem.Name + " - " + addItem.Cost + " руб.");
+
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
+
+
                 ItemsClear();
                 UpdateDisplayedItems();
+
             }
             catch (Exception ex)
             {
@@ -95,6 +109,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.Items.RemoveAt(ItemsListBox.SelectedIndex);
                 AddButton.Enabled = true;
                 ItemsClear();
+
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -110,7 +126,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 CategoryComboBox.SelectedItem = _item.Category;
 
                 AddButton.Enabled = false;
-                UpdateDisplayedItems();
             }
         }
 
@@ -143,6 +158,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
 
                 UpdateDisplayedItems();
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch
             {
@@ -165,6 +181,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
 
                 UpdateDisplayedItems();
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch
             {
@@ -200,6 +217,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
 
                 UpdateDisplayedItems();
+
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch
             {
@@ -254,7 +273,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             switch (SortComboBox.SelectedIndex)
             {
-                case 0: 
+                case 0:
                     SortCompare = (firstItem, secondItem) =>
                         string.Compare(firstItem.Name, secondItem.Name, StringComparison.OrdinalIgnoreCase);
                     break;

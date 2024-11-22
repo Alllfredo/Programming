@@ -248,6 +248,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
             label3.Location = new Point(12, 597);
             label3.Name = "label3";
@@ -257,6 +258,8 @@
             // 
             // SortComboBox
             // 
+            SortComboBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            SortComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             SortComboBox.FormattingEnabled = true;
             SortComboBox.Location = new Point(105, 594);
             SortComboBox.Name = "SortComboBox";
@@ -304,7 +307,6 @@
             Controls.Add(splitContainer1);
             Name = "ItemsTab";
             Size = new Size(1051, 711);
-            Click += ItemsTab_Click;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);

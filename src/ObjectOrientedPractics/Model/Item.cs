@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics
 {
     /// <summary>
-    /// Хранит данные о товарах
+    /// Хранит данные о товарах.
     /// </summary>
     public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
-
     {
         /// <summary>
-        /// счетсик-поле
+        /// Счетчик для уникальных идентификаторов.
         /// </summary>
         private static int _countId = 0;
 
@@ -25,50 +19,63 @@ namespace ObjectOrientedPractics
         private int _id;
 
         /// <summary>
-        /// Название товара
+        /// Название товара.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Информация о товаре
+        /// Информация о товаре.
         /// </summary>
         private string _info;
 
         /// <summary>
-        /// Информация о стоимости товара
+        /// Стоимость товара.
         /// </summary>
         private float _cost;
 
         public Category Category { get; set; }
 
+        // События для изменений свойств
+        public event EventHandler<EventArgs> NameChanged;
+        public event EventHandler<EventArgs> InfoChanged;
+        public event EventHandler<EventArgs> CostChanged;
+
         /// <summary>
-        ///  Возвращает и задает название товара. Длина строки не больше 200 символов.
+        /// Возвращает и задает название товара. Длина строки не больше 200 символов.
         /// </summary>
         public string Name
         {
             get { return _name; }
             set
             {
-                Validator.AssertStringOnLength(value, 200, "Названеи товара");
-                _name = value;
+                Validator.AssertStringOnLength(value, 200, "Название товара");
+                if (_name != value)  // Проверяем, изменилось ли значение
+                {
+                    _name = value;
+                    NameChanged?.Invoke(this, EventArgs.Empty); // Вызываем событие при изменении
+                }
             }
         }
 
         /// <summary>
-        ///  Возвращает и задает информация о товаре. Длина строки не больше 1000 символов.
+        /// Возвращает и задает информацию о товаре. Длина строки не больше 1000 символов.
         /// </summary>
         public string Info
         {
             get { return _info; }
             set
             {
-                Validator.AssertStringOnLength(value, -1, 1000, "Информация о товаре");
-                _info = value;
+                Validator.AssertStringOnLength(value, 1000, "Информация о товаре");
+                if (_info != value)  // Проверяем, изменилось ли значение
+                {
+                    _info = value;
+                    InfoChanged?.Invoke(this, EventArgs.Empty); // Вызываем событие при изменении
+                }
             }
         }
 
         /// <summary>
-        /// Возвращает и задает стоимость товара. Длина строки не больше 1000 символов.
+        /// Возвращает и задает стоимость товара. Должна быть в пределах от 0 до 100 000.
         /// </summary>
         public float Cost
         {
@@ -76,24 +83,25 @@ namespace ObjectOrientedPractics
             set
             {
                 Validator.AssertOnPositiveValue(value, 0, 100_000, "Цена");
-                _cost = value;
+                if (_cost != value)  // Проверяем, изменилось ли значение
+                {
+                    _cost = value;
+                    CostChanged?.Invoke(this, EventArgs.Empty); // Вызываем событие при изменении
+                }
             }
         }
 
         /// <summary>
-        /// Возвращает уникальный идентификатор для всех объектов данного класса
+        /// Возвращает уникальный идентификатор товара.
         /// </summary>
-        public int Id
-        {
-            get { return _id; }
-        }
+        public int Id => _id;
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Item"/>
+        /// Создает экземпляр класса <see cref="Item"/>.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="info"></param>
-        /// <param name="cost"></param>
+        /// <param name="name">Название товара.</param>
+        /// <param name="info">Информация о товаре.</param>
+        /// <param name="cost">Стоимость товара.</param>
         /// <param name="category">Категория товара.</param>
         public Item(string name, string info, float cost, Category category)
         {
@@ -104,6 +112,7 @@ namespace ObjectOrientedPractics
             Cost = cost;
             Category = category;
         }
+
         public Item(int id)
         {
             _id = id;
@@ -124,7 +133,7 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
-        /// Проверяет равенство исходного объект с передаваемым.
+        /// Проверяет равенство исходного объекта с передаваемым.
         /// </summary>
         /// <param name="other">Объект класса <see cref="Item"/>.</param>
         /// <returns>Возвращает булевое значение, равны ли объекты.</returns>
@@ -140,6 +149,7 @@ namespace ObjectOrientedPractics
             }
             return this.Id == other.Id;
         }
+
         /// <summary>
         /// Сравнивает исходный объект с передаваемым.
         /// </summary>
@@ -166,3 +176,4 @@ namespace ObjectOrientedPractics
         }
     }
 }
+
