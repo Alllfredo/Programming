@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             OrdersDataGridView = new DataGridView();
-            OrderId = new DataGridViewTextBoxColumn();
-            CreationDate = new DataGridViewTextBoxColumn();
-            OrderStatus = new DataGridViewTextBoxColumn();
-            CustomerName = new DataGridViewTextBoxColumn();
-            DeliveryAddress = new DataGridViewTextBoxColumn();
-            TotalPrice = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
             AddressControl = new Controls.AddressControl();
@@ -53,6 +47,13 @@
             label8 = new Label();
             label7 = new Label();
             panel1 = new Panel();
+            OrderId = new DataGridViewTextBoxColumn();
+            CreationDate = new DataGridViewTextBoxColumn();
+            OrderStatus = new DataGridViewTextBoxColumn();
+            CustomerName = new DataGridViewTextBoxColumn();
+            DeliveryAddress = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            TotalPrice = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)OrdersDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -70,7 +71,7 @@
             OrdersDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             OrdersDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             OrdersDataGridView.ColumnHeadersHeight = 29;
-            OrdersDataGridView.Columns.AddRange(new DataGridViewColumn[] { OrderId, CreationDate, OrderStatus, CustomerName, DeliveryAddress, TotalPrice });
+            OrdersDataGridView.Columns.AddRange(new DataGridViewColumn[] { OrderId, CreationDate, OrderStatus, CustomerName, DeliveryAddress, Price, TotalPrice });
             OrdersDataGridView.Location = new Point(5, 36);
             OrdersDataGridView.MultiSelect = false;
             OrdersDataGridView.Name = "OrdersDataGridView";
@@ -81,49 +82,6 @@
             OrdersDataGridView.Size = new Size(558, 541);
             OrdersDataGridView.TabIndex = 1;
             OrdersDataGridView.SelectionChanged += OrdersDataGridView_SelectionChanged;
-            // 
-            // OrderId
-            // 
-            OrderId.HeaderText = "ID";
-            OrderId.MinimumWidth = 6;
-            OrderId.Name = "OrderId";
-            OrderId.ReadOnly = true;
-            OrderId.Resizable = DataGridViewTriState.True;
-            // 
-            // CreationDate
-            // 
-            CreationDate.HeaderText = "Created";
-            CreationDate.MinimumWidth = 6;
-            CreationDate.Name = "CreationDate";
-            CreationDate.ReadOnly = true;
-            // 
-            // OrderStatus
-            // 
-            OrderStatus.HeaderText = "Order Status";
-            OrderStatus.MinimumWidth = 6;
-            OrderStatus.Name = "OrderStatus";
-            OrderStatus.ReadOnly = true;
-            // 
-            // CustomerName
-            // 
-            CustomerName.HeaderText = "Customer Full Name";
-            CustomerName.MinimumWidth = 6;
-            CustomerName.Name = "CustomerName";
-            CustomerName.ReadOnly = true;
-            // 
-            // DeliveryAddress
-            // 
-            DeliveryAddress.HeaderText = "Delivery Address";
-            DeliveryAddress.MinimumWidth = 6;
-            DeliveryAddress.Name = "DeliveryAddress";
-            DeliveryAddress.ReadOnly = true;
-            // 
-            // TotalPrice
-            // 
-            TotalPrice.HeaderText = "Total Price";
-            TotalPrice.MinimumWidth = 6;
-            TotalPrice.Name = "TotalPrice";
-            TotalPrice.ReadOnly = true;
             // 
             // label1
             // 
@@ -308,6 +266,56 @@
             panel1.Size = new Size(241, 129);
             panel1.TabIndex = 12;
             // 
+            // OrderId
+            // 
+            OrderId.HeaderText = "ID";
+            OrderId.MinimumWidth = 6;
+            OrderId.Name = "OrderId";
+            OrderId.ReadOnly = true;
+            OrderId.Resizable = DataGridViewTriState.True;
+            // 
+            // CreationDate
+            // 
+            CreationDate.HeaderText = "Created";
+            CreationDate.MinimumWidth = 6;
+            CreationDate.Name = "CreationDate";
+            CreationDate.ReadOnly = true;
+            // 
+            // OrderStatus
+            // 
+            OrderStatus.HeaderText = "Order Status";
+            OrderStatus.MinimumWidth = 6;
+            OrderStatus.Name = "OrderStatus";
+            OrderStatus.ReadOnly = true;
+            // 
+            // CustomerName
+            // 
+            CustomerName.HeaderText = "Customer Full Name";
+            CustomerName.MinimumWidth = 6;
+            CustomerName.Name = "CustomerName";
+            CustomerName.ReadOnly = true;
+            // 
+            // DeliveryAddress
+            // 
+            DeliveryAddress.HeaderText = "Delivery Address";
+            DeliveryAddress.MinimumWidth = 6;
+            DeliveryAddress.Name = "DeliveryAddress";
+            DeliveryAddress.ReadOnly = true;
+            // 
+            // Price
+            // 
+            Price.HeaderText = "Price";
+            Price.MinimumWidth = 6;
+            Price.Name = "Price";
+            Price.ReadOnly = true;
+            // 
+            // TotalPrice
+            // 
+            TotalPrice.HeaderText = "Total Price";
+            TotalPrice.MinimumWidth = 6;
+            TotalPrice.Name = "TotalPrice";
+            TotalPrice.ReadOnly = true;
+            // 
             // OrdersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -344,16 +352,17 @@
         private Label label4;
         private ListBox OrderItemsListBox;
         private SplitContainer splitContainer1;
-        private DataGridViewTextBoxColumn OrderId;
-        private DataGridViewTextBoxColumn CreationDate;
-        private DataGridViewTextBoxColumn OrderStatus;
-        private DataGridViewTextBoxColumn CustomerName;
-        private DataGridViewTextBoxColumn DeliveryAddress;
-        private DataGridViewTextBoxColumn TotalPrice;
         private Panel panel1;
         private Panel PrioretyPanel;
         private ComboBox DeliveryComboBox;
         private Label label8;
         private Label label7;
+        private DataGridViewTextBoxColumn OrderId;
+        private DataGridViewTextBoxColumn CreationDate;
+        private DataGridViewTextBoxColumn OrderStatus;
+        private DataGridViewTextBoxColumn CustomerName;
+        private DataGridViewTextBoxColumn DeliveryAddress;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn TotalPrice;
     }
 }

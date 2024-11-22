@@ -53,7 +53,8 @@ namespace ObjectOrientedPractics.View.Tabs
                         order.Status,
                         customer.Fullname,
                         formattedAddress,
-                        order.TotalAmount);
+                        order.TotalAmount,
+                        order.Total);
                 }
             }
         }

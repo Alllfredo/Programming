@@ -147,7 +147,7 @@ namespace ObjectOrientedPractics.View.Controls
         }
         public void Clear()
         {
-            _address = new Address();
+            _address = new Address();   
 
             IndexTextBox.Text = "";
             CountryTextBox.Text = "";
