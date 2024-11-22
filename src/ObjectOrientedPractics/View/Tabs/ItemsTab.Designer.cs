@@ -44,6 +44,10 @@
             label1 = new Label();
             CategoryComboBox = new ComboBox();
             splitContainer1 = new SplitContainer();
+            label3 = new Label();
+            SortComboBox = new ComboBox();
+            FindTextBox = new TextBox();
+            label2 = new Label();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -57,9 +61,9 @@
             ItemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ItemsListBox.FormattingEnabled = true;
             ItemsListBox.ItemHeight = 20;
-            ItemsListBox.Location = new Point(12, 31);
+            ItemsListBox.Location = new Point(12, 71);
             ItemsListBox.Name = "ItemsListBox";
-            ItemsListBox.Size = new Size(649, 584);
+            ItemsListBox.Size = new Size(649, 504);
             ItemsListBox.TabIndex = 0;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
             // 
@@ -71,7 +75,7 @@
             IdTextBox.MinimumSize = new Size(100, 30);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
-            IdTextBox.Size = new Size(149, 27);
+            IdTextBox.Size = new Size(149, 30);
             IdTextBox.TabIndex = 1;
             // 
             // CostTextBox
@@ -81,7 +85,7 @@
             CostTextBox.MaximumSize = new Size(400, 400);
             CostTextBox.MinimumSize = new Size(100, 30);
             CostTextBox.Name = "CostTextBox";
-            CostTextBox.Size = new Size(149, 27);
+            CostTextBox.Size = new Size(149, 30);
             CostTextBox.TabIndex = 2;
             CostTextBox.TextChanged += CostTextBox_TextChanged;
             // 
@@ -222,6 +226,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(label3);
+            splitContainer1.Panel1.Controls.Add(SortComboBox);
+            splitContainer1.Panel1.Controls.Add(FindTextBox);
+            splitContainer1.Panel1.Controls.Add(label2);
             splitContainer1.Panel1.Controls.Add(ItemsListBox);
             splitContainer1.Panel1.Controls.Add(RemoveButton);
             splitContainer1.Panel1.Controls.Add(ItemsLabel);
@@ -237,6 +245,41 @@
             splitContainer1.Size = new Size(1051, 711);
             splitContainer1.SplitterDistance = 668;
             splitContainer1.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 597);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 20);
+            label3.TabIndex = 20;
+            label3.Text = "Ordered By:";
+            // 
+            // SortComboBox
+            // 
+            SortComboBox.FormattingEnabled = true;
+            SortComboBox.Location = new Point(105, 594);
+            SortComboBox.Name = "SortComboBox";
+            SortComboBox.Size = new Size(556, 28);
+            SortComboBox.TabIndex = 19;
+            SortComboBox.SelectedIndexChanged += SortComboBox_SelectedIndexChanged;
+            // 
+            // FindTextBox
+            // 
+            FindTextBox.Location = new Point(54, 32);
+            FindTextBox.Name = "FindTextBox";
+            FindTextBox.Size = new Size(607, 27);
+            FindTextBox.TabIndex = 18;
+            FindTextBox.TextChanged += FindTextBox_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 20);
+            label2.TabIndex = 17;
+            label2.Text = "Find:";
             // 
             // panel1
             // 
@@ -292,5 +335,9 @@
         private ComboBox CategoryComboBox;
         private SplitContainer splitContainer1;
         private Panel panel1;
+        private Label label3;
+        private ComboBox SortComboBox;
+        private TextBox FindTextBox;
+        private Label label2;
     }
 }
