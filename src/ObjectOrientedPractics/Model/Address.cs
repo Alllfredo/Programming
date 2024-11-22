@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Представляет адрес клиента, включая индекс, страну, город, улицу, здание и квартиру.
     /// </summary>
-    public class Address: ICloneable, IEquatable<Address>
+    public class Address : ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Хранит индекс.
@@ -42,6 +38,11 @@ namespace ObjectOrientedPractics
         private string _apartment;
 
         /// <summary>
+        /// Событие при обновлении любого поля объекта <see cref="Address"/>.
+        /// </summary>
+        public event EventHandler<EventArgs> AddressChanged;
+
+        /// <summary>
         /// Возвращает и задает индекс. Значение должно быть в диапазоне от 100000 до 999999.
         /// </summary>
         public int Index
@@ -49,8 +50,12 @@ namespace ObjectOrientedPractics
             get { return _index; }
             set
             {
-                Validator.AssertOnPositiveValue(value, 100_000, 999_999, nameof(value));
-                _index = value;
+                if (_index != value)
+                {
+                    Validator.AssertOnPositiveValue(value, 100_000, 999_999, nameof(value));
+                    _index = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -62,8 +67,12 @@ namespace ObjectOrientedPractics
             get { return _country; }
             set
             {
-                Validator.AssertStringOnLength(value, 50, "Страна");
-                _country = value;
+                if (_country != value)
+                {
+                    Validator.AssertStringOnLength(value, 50, "Страна");
+                    _country = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -75,8 +84,12 @@ namespace ObjectOrientedPractics
             get { return _city; }
             set
             {
-                Validator.AssertStringOnLength(value, 50, "Город");
-                _city = value;
+                if (_city != value)
+                {
+                    Validator.AssertStringOnLength(value, 50, "Город");
+                    _city = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -88,8 +101,12 @@ namespace ObjectOrientedPractics
             get { return _street; }
             set
             {
-                Validator.AssertStringOnLength(value, 100, "Улица");
-                _street = value;
+                if (_street != value)
+                {
+                    Validator.AssertStringOnLength(value, 100, "Улица");
+                    _street = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -101,8 +118,12 @@ namespace ObjectOrientedPractics
             get { return _building; }
             set
             {
-                Validator.AssertStringOnLength(value, 10, "Номер здания");
-                _building = value;
+                if (_building != value)
+                {
+                    Validator.AssertStringOnLength(value, 10, "Номер здания");
+                    _building = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -114,8 +135,12 @@ namespace ObjectOrientedPractics
             get { return _apartment; }
             set
             {
-                Validator.AssertStringOnLength(value, -1, 10, "Квартира");
-                _apartment = value;
+                if (_apartment != value)
+                {
+                    Validator.AssertStringOnLength(value, -1, 10, "Квартира");
+                    _apartment = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);  // Срабатывает событие при изменении
+                }
             }
         }
 
@@ -138,7 +163,6 @@ namespace ObjectOrientedPractics
             Apartment = apartment;
         }
 
-
         /// <summary>
         /// Создает копию объекта <see cref="Address"/>.
         /// </summary>
@@ -155,7 +179,7 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
-        /// Проверяет равенство исходного объект с передаваемым.
+        /// Проверяет равенство исходного объекта с передаваемым.
         /// </summary>
         /// <param name="other">Объект класса <see cref="Address"/>.</param>
         /// <returns>Возвращает булевое значение, равны ли объекты.</returns>

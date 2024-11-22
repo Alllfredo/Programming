@@ -1,6 +1,7 @@
 ﻿using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.View.Controls;
 using ObjectOrientedPractics.View.Pop_ups;
+using ObjectOrientedPractics.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
