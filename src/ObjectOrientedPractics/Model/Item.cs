@@ -11,7 +11,8 @@ namespace ObjectOrientedPractics
     /// <summary>
     /// Хранит данные о товарах
     /// </summary>
-    public class Item
+    public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
+
     {
         /// <summary>
         /// счетсик-поле
@@ -102,6 +103,66 @@ namespace ObjectOrientedPractics
             Info = info;
             Cost = cost;
             Category = category;
+        }
+        public Item(int id)
+        {
+            _id = id;
+        }
+
+        /// <summary>
+        /// Создает копию объекта <see cref="Item"/>.
+        /// </summary>
+        /// <returns>Копия объекта в <see cref="object"/>.</returns>
+        public object Clone()
+        {
+            var item = new Item(this.Id);
+            item.Name = this.Name;
+            item.Info = this.Info;
+            item.Cost = this.Cost;
+            item.Category = this.Category;
+            return item;
+        }
+
+        /// <summary>
+        /// Проверяет равенство исходного объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="Item"/>.</param>
+        /// <returns>Возвращает булевое значение, равны ли объекты.</returns>
+        public bool Equals(Item other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (object.ReferenceEquals(this, other))
+            {
+                return true;
+            }
+            return this.Id == other.Id;
+        }
+        /// <summary>
+        /// Сравнивает исходный объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="Item"/>.</param>
+        /// <returns>
+        /// 0 - Если цены равны;
+        /// 1 - Если у исходного объекта цена выше;
+        /// -1 - Если у передаваемого объекта цена выше.
+        /// </returns>
+        public int CompareTo(Item other)
+        {
+            if (this.Cost == other.Cost)
+            {
+                return 0;
+            }
+            else if (this.Cost > other.Cost)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }

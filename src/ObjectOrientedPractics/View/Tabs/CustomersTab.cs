@@ -53,9 +53,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 if (NameTextBox.Text != "")
                 {
-
                     Customer addCustomer = new Customer(
-                        NameTextBox.Text, new Address(AddressControl.Address));
+                        NameTextBox.Text, (Address)AddressControl.Address.Clone());
 
                     if (PropertyCheckBox.Checked)
                     {

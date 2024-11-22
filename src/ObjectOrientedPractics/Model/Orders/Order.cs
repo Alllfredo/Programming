@@ -7,7 +7,7 @@ using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.Model.Order
 {
-    public class Order
+    public class Order: IEquatable<Order>
     {
         /// <summary>
         /// поле-счетчик
@@ -127,6 +127,24 @@ namespace ObjectOrientedPractics.Model.Order
             Items = items ?? new List<Item>();
             Status = OrderStatus.New;
             DiscountAmount = discountAmount;
+        }
+
+        /// <summary>
+        /// Проверяет равенство исходного объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="Order"/>.</param>
+        /// <returns>Возвращает булевое значение, равны ли объекты.</returns>
+        public bool Equals(Order other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (object.ReferenceEquals(this, other))
+            {
+                return true;
+            }
+            return this.Id == other.Id;
         }
     }
 }

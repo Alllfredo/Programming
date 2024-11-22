@@ -9,7 +9,7 @@ namespace ObjectOrientedPractics
     /// <summary>
     /// Хранит данные о корзине
     /// </summary>
-    public class Cart
+    public class Cart: ICloneable
     {
         /// <summary>
         /// Класс для представления корзины, содержащей список товаров.
@@ -48,6 +48,19 @@ namespace ObjectOrientedPractics
                 }
                 return sum;
             }
+        }
+        /// <summary>
+        /// Создает копию объекта <see cref="Cart"/>.
+        /// </summary>
+        /// <returns>Копия объекта в <see cref="object"/>.</returns>
+        public object Clone()
+        {
+            var cart = new Cart();
+            foreach (var item in this.Items)
+            {
+                cart.Items.Add((Item)item.Clone());
+            }
+            return cart;
         }
     }
 }
