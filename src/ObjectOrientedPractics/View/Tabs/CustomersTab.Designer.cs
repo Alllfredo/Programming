@@ -45,6 +45,7 @@
             AddressControl = new Controls.AddressControl();
             panel2 = new Panel();
             PropertyCheckBox = new CheckBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -181,12 +182,13 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(DiscountsListBox);
             panel1.Controls.Add(RemoveDiscountButton);
             panel1.Controls.Add(AddDiscountsButton);
             panel1.Location = new Point(4, 432);
             panel1.Name = "panel1";
-            panel1.Size = new Size(445, 197);
+            panel1.Size = new Size(445, 214);
             panel1.TabIndex = 31;
             // 
             // DiscountsListBox
@@ -194,7 +196,7 @@
             DiscountsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DiscountsListBox.FormattingEnabled = true;
             DiscountsListBox.ItemHeight = 20;
-            DiscountsListBox.Location = new Point(3, 3);
+            DiscountsListBox.Location = new Point(3, 27);
             DiscountsListBox.Name = "DiscountsListBox";
             DiscountsListBox.Size = new Size(305, 184);
             DiscountsListBox.TabIndex = 29;
@@ -204,7 +206,7 @@
             RemoveDiscountButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             RemoveDiscountButton.AutoSize = true;
             RemoveDiscountButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            RemoveDiscountButton.Location = new Point(311, 62);
+            RemoveDiscountButton.Location = new Point(311, 86);
             RemoveDiscountButton.MinimumSize = new Size(131, 52);
             RemoveDiscountButton.Name = "RemoveDiscountButton";
             RemoveDiscountButton.Padding = new Padding(1, 0, 1, 0);
@@ -219,7 +221,7 @@
             AddDiscountsButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AddDiscountsButton.AutoSize = true;
             AddDiscountsButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            AddDiscountsButton.Location = new Point(311, 4);
+            AddDiscountsButton.Location = new Point(311, 28);
             AddDiscountsButton.MinimumSize = new Size(131, 52);
             AddDiscountsButton.Name = "AddDiscountsButton";
             AddDiscountsButton.Padding = new Padding(1, 0, 1, 0);
@@ -266,6 +268,15 @@
             PropertyCheckBox.UseVisualStyleBackColor = true;
             PropertyCheckBox.CheckedChanged += PropertyCheckBox_CheckedChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 20);
+            label1.TabIndex = 31;
+            label1.Text = "Discounts";
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -308,5 +319,6 @@
         private Button RemoveDiscountButton;
         private Button AddDiscountsButton;
         private Panel panel1;
+        private Label label1;
     }
 }

@@ -245,6 +245,7 @@
             splitContainer1.Size = new Size(1051, 711);
             splitContainer1.SplitterDistance = 668;
             splitContainer1.TabIndex = 17;
+            splitContainer1.Click += splitContainer1_Click;
             // 
             // label3
             // 
@@ -298,6 +299,8 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(373, 178);
             panel1.TabIndex = 17;
+            panel1.Click += panel1_Click;
+            panel1.Paint += panel1_Paint;
             // 
             // ItemsTab
             // 

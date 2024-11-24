@@ -295,5 +295,32 @@ namespace ObjectOrientedPractics.View.Tabs
 
             UpdateDisplayedItems();
         }
+
+        private void splitContainer1_Click(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex >= 0 &&
+                ItemsListBox.SelectedIndex < _items.Count && AddButton.Enabled == false)
+            {
+                ItemsListBox.SetSelected(0, false);
+                ItemsClear();
+                AddButton.Enabled = true;
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex >= 0 &&
+                ItemsListBox.SelectedIndex < _items.Count && AddButton.Enabled == false)
+            {
+                ItemsListBox.SetSelected(0, false);
+                ItemsClear();
+                AddButton.Enabled = true;
+            }
+        }
     }
 }
